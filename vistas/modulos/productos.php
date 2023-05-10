@@ -46,7 +46,7 @@
                 <th>Codigo</th>
                 <th>Producto</th>
                 <th>Categoria</th>
-                <th>Stock</th>
+                <th>Stock Disponible</th>
                 <th>P.unitario</th>
                 <th>P.Lote</th>
                 <th>Ingreso</th>
@@ -74,7 +74,7 @@
                   <td><?php echo $value["codigo_producto"]; ?></td>
                   <td><?php echo $value["descripcion"]; ?></td>
                   <td><?php echo $categoria["categoria"]; ?></td>
-                  <td><?php echo $value["stock"]; ?></td>
+                  <td><?php echo $value["stockDisponible"]; ?></td>
                   <td><?php echo $value["costo_unitario"]; ?></td>
                   <td><?php echo $value["costo_lote"]; ?></td>
                   <td><?php echo $value["fecha_ingreso"]; ?></td>

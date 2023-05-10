@@ -19,9 +19,37 @@ class ModeloSalidas{
         $stmt = null;
 
     }
-    static public function mdlAgregarSalida(){
 
-    }
+    /*=============================================
+	REGISTRO DE Salida
+	=============================================*/
+
+	static public function mdlIngresarSalida($tabla, $datos){
+
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(codigo_salida, id_solicitante, id_usuario, productos, total_valor_salida) VALUES (:codigo, :id_solicitante, :id_usuario, :productos, :total)");
+
+		$stmt->bindParam(":codigo", $datos["codigo"], PDO::PARAM_INT);
+		$stmt->bindParam(":id_solicitante", $datos["id_solicitante"], PDO::PARAM_INT);
+		$stmt->bindParam(":id_usuario", $datos["id_usuario"], PDO::PARAM_INT);
+		$stmt->bindParam(":productos", $datos["productos"], PDO::PARAM_STR);
+		$stmt->bindParam(":total", $datos["total"], PDO::PARAM_STR);
+		
+		if($stmt->execute()){
+
+			return "ok";
+
+		}else{
+
+			return "error";
+		
+		}
+
+		$stmt->close();
+		$stmt = null;
+
+	}
+
+    
     static public function mdlEditarSalida(){
 
     }

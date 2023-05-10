@@ -14,11 +14,12 @@ class ModeloProductosEntradas{
     }
 
     static public function mdlIngresarProductosEntrada($tabla,$datos){
-        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla (id_categoria, codigo_producto, descripcion, stock, costo_unitario, costo_lote, fecha_ingreso, codigo_ingreso) VALUES (:categoria, :codigoProducto, :descripcion, :stock, :unitario, :lote, :fecha, :codigoIngreso)");
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla (id_categoria, codigo_producto, descripcion, stock,stockDisponible, costo_unitario, costo_lote, fecha_ingreso, codigo_ingreso) VALUES (:categoria, :codigoProducto, :descripcion, :stock, :stockDisponible, :unitario, :lote, :fecha, :codigoIngreso)");
         $stmt->bindParam(":categoria", $datos["categoria"], PDO::PARAM_STR);
         $stmt->bindParam(":descripcion", $datos["nombreProducto"], PDO::PARAM_STR);
         $stmt->bindParam(":codigoProducto", $datos["codigoProducto"], PDO::PARAM_STR);
         $stmt->bindParam(":stock", $datos["stock"], PDO::PARAM_STR);
+        $stmt->bindParam(":stockDisponible", $datos["stockDisponible"], PDO::PARAM_STR);
         $stmt->bindParam(":unitario", $datos["unitario"], PDO::PARAM_STR);
         $stmt->bindParam(":lote", $datos["lote"], PDO::PARAM_STR);
         $stmt->bindParam(":fecha", $datos["fecha"], PDO::PARAM_STR);

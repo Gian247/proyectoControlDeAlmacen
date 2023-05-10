@@ -26,17 +26,17 @@ class TablaProductoSalidas{
   			=============================================*/ 
 
             //Poniendole colores indicadores dependiendo de la cantidad de stock
-  			if($productos[$i]["stock"] <= 10){
+  			if($productos[$i]["stockDisponible"] <= 10){
 
-                $stock = "<button class='btn btn-danger'>".$productos[$i]["stock"]."</button>";
+                $stock = "<button class='btn btn-danger'>".$productos[$i]["stockDisponible"]."</button>";
 
-            }else if($productos[$i]["stock"] > 11 && $productos[$i]["stock"] <= 15){
+            }else if($productos[$i]["stockDisponible"] > 11 && $productos[$i]["stockDisponible"] <= 15){
 
-                $stock = "<button class='btn btn-warning'>".$productos[$i]["stock"]."</button>";
+                $stock = "<button class='btn btn-warning'>".$productos[$i]["stockDisponible"]."</button>";
 
             }else{
 
-                $stock = "<button class='btn btn-success'>".$productos[$i]["stock"]."</button>";
+                $stock = "<button class='btn btn-success'>".$productos[$i]["stockDisponible"]."</button>";
 
             }
 
@@ -55,7 +55,7 @@ class TablaProductoSalidas{
 
 
         }
-
+        //Quitando la coma al ultimo elemento
         $datosJson = substr($datosJson, 0, -1);
 
 		 $datosJson .=   '] 

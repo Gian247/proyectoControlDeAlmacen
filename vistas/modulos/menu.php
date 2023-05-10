@@ -52,26 +52,8 @@
 								</a>
 	
 							</li>
-							<li>
-
-								<a href="proveedores">
-	
-									<i class="fa fa-truck"></i>
-									<span>Proveedores</span>
-	
-								</a>
-	
-							</li>
-							<li>
-	
-								<a href="entradas-almacen">
-	
-									<i class="fa fa-product-hunt"></i>
-									<span>Entradas Almacen</span>
-	
-								</a>
-	
-							</li>
+							
+							
 	
 							<li>
 	
@@ -100,6 +82,10 @@
 				}
 
 				if($_SESSION["perfil"]==1 || $_SESSION["perfil"]=="Vendedor"){
+					
+
+
+
 
 					echo ' <li class="treeview">
 
@@ -107,7 +93,7 @@
 	
 						<i class="fa fa-list-ul"></i>
 	
-						<span>Ventas</span>
+						<span>Gestión Ingresos</span>
 	
 						<span class="pull-right-container">
 	
@@ -116,15 +102,63 @@
 						</span>
 	
 					</a>
-	
+
 					<ul class="treeview-menu">
 	
 						<li>
 	
-							<a href="ventas">
+							<a href="proveedores">
 	
 								<i class="fa fa-circle-o"></i>
-								<span>Administrar ventas</span>
+								<span>Proveedores</span>
+	
+							</a>
+	
+						</li>
+	
+						<li>
+	
+							<a href="entradas-almacen">
+	
+								<i class="fa fa-circle-o"></i>
+								<span>Ingreso Productos</span>
+	
+							</a>
+	
+						</li>';
+						
+						echo '</ul>
+
+            		</li>';
+
+
+
+
+
+					echo ' <li class="treeview">
+
+					<a href="#">
+	
+						<i class="fa fa-list-ul"></i>
+	
+						<span>Gestión Salidas</span>
+	
+						<span class="pull-right-container">
+	
+							<i class="fa fa-angle-left pull-right"></i>
+	
+						</span>
+	
+					</a>
+
+					<ul class="treeview-menu">
+	
+						<li>
+	
+							<a href="salidas">
+	
+								<i class="fa fa-circle-o"></i>
+								<span>Administrar Salidas</span>
 	
 							</a>
 	
@@ -146,7 +180,7 @@
 										<a href="reportes">
 		
 											<i class="fa fa-circle-o"></i>
-											<span>Reporte de ventas</span>
+											<span>Reporte de Salidas</span>
 		
 										</a>
 		

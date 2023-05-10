@@ -99,7 +99,7 @@
 
                     }
                     //Obtiene el ultimovalor del codigo y  le suma 1
-                    $codigo = $value["codigo"] + 1;
+                    $codigo = $value["codigo_salida"] + 1;
 
 
                     //Manda a la vista del usuario el valordel codigo calculado
@@ -268,7 +268,7 @@
 
         <div class="box-body">
 
-          <table class="table table-bordered table-striped dt-responsive tablaSalidas">
+          <table class="table table-bordered table-striped  tablaSalidas">
 
              <thead>
 

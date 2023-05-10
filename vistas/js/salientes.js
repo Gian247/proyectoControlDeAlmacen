@@ -21,6 +21,7 @@ CARGAR LA TABLA DINÁMICA DE VENTAS
 
 //  })
 
+//Llena la tabla de salidas con los productos que se tienen de la base de datoss
 $('.tablaSalidas').DataTable( {
     "ajax": "ajax/datatable-salidas.ajax.php",
     "deferRender": true,
@@ -59,20 +60,22 @@ $('.tablaSalidas').DataTable( {
 /*=============================================
 AGREGANDO PRODUCTOS A LA VENTA DESDE LA TABLA
 =============================================*/
+//EVENTO HACER CLICK EN EL BOTON DE AGREGAR PRODUCTO
 
 $(".tablaSalidas tbody").on("click", "button.agregarProducto", function(){
-    
+    //Almaceno en una variable el valor del id del producto que viene  incrustado en la etiqueta
 	var idProducto = $(this).attr("idProducto");
     
-
+	//Remuevo la clase que le da el color azul y le quito la clase agregar producto
 	$(this).removeClass("btn-primary agregarProducto");
-
+	//Le agrego a boton la clase default que le asigana un color gris
 	$(this).addClass("btn-default");
 
 	var datos = new FormData();
     datos.append("idProducto", idProducto);
 
      $.ajax({
+		//Se le envia por ajax a consultar los datos del producto
      	url:"ajax/productos.ajax.php",
       	method: "POST",
       	data: datos,
@@ -81,29 +84,32 @@ $(".tablaSalidas tbody").on("click", "button.agregarProducto", function(){
       	processData: false,
       	dataType:"json",
       	success:function(respuesta){
-			
+			//En la respuesta que nos da la clase ajax  almacenamos en variables
       	    var descripcion = respuesta["descripcion"];
-          	var stock = respuesta["stock"];
+          	var stock = respuesta["stockDisponible"];
           	var precio = respuesta["costo_unitario"];
 			  
 
           	/*=============================================
           	EVITAR AGREGAR PRODUTO CUANDO EL STOCK ESTÁ EN CERO
           	=============================================*/
-
+			//Si el stock disponible es 0 no deja agregar el producto mostrando un modal de error
+			//y restableciendo el boton
 			  if(stock == 0){
 
 				swal({
 				title: "No hay stock disponible",
 				type: "error",
 				confirmButtonText: "¡Cerrar!"
-			  });
-
-			  $("button[idProducto='"+idProducto+"']").addClass("btn-primary agregarProducto");
-
-			  return;
+			  	});
+				//
+			  	$("button[idProducto='"+idProducto+"']").addClass("btn-primary agregarProducto");
+				//Termina la ejecucion
+			  	return;
 
 			}
+
+
 			$(".nuevoProducto").append(
 
 				'<div class="row" style="padding:5px 15px">'+
@@ -150,9 +156,7 @@ $(".tablaSalidas tbody").on("click", "button.agregarProducto", function(){
 
 	        sumarTotalPrecios()
 
-	        // AGREGAR IMPUESTO
-
-	        agregarImpuesto()
+	        
 
 	        // AGRUPAR PRODUCTOS EN FORMATO JSON
 
@@ -170,9 +174,9 @@ $(".tablaSalidas tbody").on("click", "button.agregarProducto", function(){
 
 
 
-/*=============================================
+/*======================================================
 CUANDO CARGUE LA TABLA CADA VEZ QUE NAVEGUE EN ELLA
-=============================================*/
+=========================================================*/
 //Funcion recomendada cada vez que estemos navegando en una tabla
 $(".tablaSalidas").on("draw.dt", function(){
 	//Preguntamos si en el localstorage existe el item quitar producto
@@ -201,10 +205,10 @@ $(".tablaSalidas").on("draw.dt", function(){
 
 
 /*=============================================
-SELECCIONAR PRODUCTO
+SELECCIONAR PRODUCTO RESPONSIVE VERSION
 =============================================*/
 
-$(".formularioSalida").on("change", "select.nuevaDescripcionProducto", function(){
+/*$(".formularioSalida").on("change", "select.nuevaDescripcionProducto", function(){
 
 	var nombreProducto = $(this).val();
 
@@ -242,7 +246,7 @@ $(".formularioSalida").on("change", "select.nuevaDescripcionProducto", function(
       	}
 
       })
-})
+})*/
 
 
 
@@ -251,29 +255,33 @@ MODIFICAR LA CANTIDAD
 =============================================*/
 
 $(".formularioSalida").on("change", "input.nuevaCantidadProducto", function(){
-
+	//OBTENEMOS EL VALOR DEL CAMPO DE PRECIO QUE VIENE YA EN EL CAMPO
 	var precio = $(this).parent().parent().children(".ingresoPrecio").children().children(".nuevoPrecioProducto");
-
-	var precioFinal = $(this).val() * precio.attr("precioReal");
 	
+	//Almacenamos el valor del total(cantidad*precio)
+	//De esta estiqueta obtenermos el valor * y utilizamos el parametro incrustado en la etuqeta desde la base de datos
+	var precioFinal = $(this).val() * precio.attr("precioreal");
+	//Enviamos el valor al campo del precio final del producto
 	precio.val(precioFinal);
-
+	//En la variable que viene de de stock incrustado en la etiqueta se le resta lo que el usuario solicita
 	var nuevoStock = Number($(this).attr("stock")) - $(this).val();
-
+	//Se actualiza el atributo incrustado con el stock restante de lo solicitado
 	$(this).attr("nuevoStock", nuevoStock);
 
+	//Parseamos los datos a numericos
 	if(Number($(this).val()) > Number($(this).attr("stock"))){
 
 		/*=============================================
 		SI LA CANTIDAD ES SUPERIOR AL STOCK REGRESAR VALORES INICIALES
 		=============================================*/
-		//El valor del campo stock lo regresa a 1
+		//El valor del campo cantidad lo regresa a 1
 		$(this).val(1);
 		//El valor de la suma del stock por el precio lo restaura como si se solicitara 1 unidad
 		var precioFinal = $(this).val() * precio.attr("precioReal");
-		
+		//Restablece el stock
 		precio.val(precioFinal);
-
+		var nuevoStock = Number($(this).attr("stock")) - 1;
+		$(this).attr("nuevoStock", nuevoStock);
 		sumarTotalPrecios();
 
 		swal({
@@ -283,6 +291,7 @@ $(".formularioSalida").on("change", "input.nuevaCantidadProducto", function(){
 	      confirmButtonText: "¡Cerrar!"
 	    });
 
+		//Termina la ejecución
 	    return;
 
 	}
@@ -291,9 +300,7 @@ $(".formularioSalida").on("change", "input.nuevaCantidadProducto", function(){
 
 	sumarTotalPrecios()
 
-	// AGREGAR IMPUESTO
-	        
-    agregarImpuesto()
+	
 
     // AGRUPAR PRODUCTOS EN FORMATO JSON
 
@@ -307,12 +314,12 @@ SUMAR TODOS LOS PRECIOS
 
 function sumarTotalPrecios(){
 	
-
+	//Obtiene el valor del precio del producto
 	var precioItem = $(".nuevoPrecioProducto");
 	var arraySumaPrecio = [];  
 
 	for(var i = 0; i < precioItem.length; i++){
-
+		 //Almacena los valores del los presicion de los productos
 		 arraySumaPrecio.push(Number($(precioItem[i]).val()));
 		 
 	}
@@ -322,12 +329,14 @@ function sumarTotalPrecios(){
 		return total + numero;
 
 	}
-
+	//Suma todos los valores del arreglo
 	var sumaTotalPrecio = arraySumaPrecio.reduce(sumaArrayPrecios);
 	
-	
+	//Muestra el resultado total en el campo 
 	$("#nuevoTotalVenta").val(sumaTotalPrecio);
+	//Muestra el valor de la multiplicacion del producto*cantiadSolicitada
 	$("#totalVenta").val(sumaTotalPrecio);
+	//Añadimos un parametro a la etiqueta con el valor total del pedido
 	$("#nuevoTotalVenta").attr("total",sumaTotalPrecio);
 
 
@@ -355,7 +364,7 @@ function listarProductos(){
 		listaProductos.push({ "id" : $(descripcion[i]).attr("idProducto"), 
 							  "descripcion" : $(descripcion[i]).val(),
 							  "cantidad" : $(cantidad[i]).val(),
-							  "stock" : $(cantidad[i]).attr("nuevoStock"),
+							  "stockDisponible" : $(cantidad[i]).attr("nuevoStock"),
 							  "precio" : $(precio[i]).attr("precioReal"),
 							  "total" : $(precio[i]).val()})
 

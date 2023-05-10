@@ -31,6 +31,7 @@ class ControladorProductosEntradas{
                                 "nombreProducto"=>$_POST["nuevoProductoEntrada"],
                                 "codigoProducto"=>$_POST["nuevoCodigo"],
                                 "stock"=>$_POST["nuevoStock"],
+                                "stockDisponible"=>$_POST["nuevoStock"],
                                 "unitario"=>$_POST["nuevoPrecioUnitario"],
                                 "lote"=>$calculoTotal,
                                 "fecha"=>$_POST["nuevaFechaIngreso"]
