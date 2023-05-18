@@ -102,10 +102,10 @@
 
 
 <!-- **********************************
-          MODAL AGREGAR USUARIO
+          MODAL AGREGAR PROVEEDOR
  **************************************-->
 
-<div id="modalAgregarUsuario" class="modal fade" role="dialog">
+<div id="modalAgregarProveedores" class="modal fade" role="dialog">
 
     <div class="modal-dialog">
 
@@ -123,7 +123,7 @@
 
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-                    <h4 class="modal-title">Agregar Usuario</h4>
+                    <h4 class="modal-title">AGREGAR PROVEEDOR</h4>
 
                 </div>
                 <!-- **********************************
@@ -133,31 +133,31 @@
                 <div class="modal-body">
 
                     <div class="box-body">
-                        <!--Entrada de nombre-->
+                        <!--Entrada de la empresa-->
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control input-lg" name="nuevoNombre"
-                                    placeholder="NOMBRES COMPLETOS" required>
+                                <input type="text" class="form-control input-lg" name="nuevoProveedor"
+                                    placeholder="INGRESE EL NOMBRE DE LA EMPRESA" required>
                             </div>
                         </div>
 
-                        <!--Entrada de apellido-->
+                        <!--Entrada de rubro de la empresa-->
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control input-lg" name="nuevoApellido"
-                                    placeholder="APELLIDOS" required>
+                                <input type="text" class="form-control input-lg" name="nuevoRubro"
+                                    placeholder="INGRESE SECTOR DE COMERCIO DE LA EMPRESA" required>
                             </div>
                         </div>
 
-                        <!--Entrada de correo-->
+                        <!--Entrada de representante-->
 
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control input-lg" name="nuevoCorreo"
-                                    placeholder="CORREO ELECTRONICO" required>
+                                <input type="text" class="form-control input-lg" name="nuevoContactoEmpresa"
+                                    placeholder="INGRESE EL NOMBRE DEL REPRESENTANTE" required>
                             </div>
                         </div>
 
@@ -166,44 +166,30 @@
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                                <input type="text" class="form-control input-lg" name="nuevoUsuario" id="nuevoUsuario"
-                                    placeholder="NOMBRE DE USUARIO" required>
+                                <input type="text" class="form-control input-lg" name="nuevoTelefono" id="nuevoUsuario"
+                                    placeholder="# CONTACTO( 0156466 / 984578457)" required>
                             </div>
                         </div>
                         <!--Entrada de contraseña-->
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input type="text" class="form-control input-lg" name="nuevoPassword"
-                                    placeholder="CONTRASEÑA" required>
+                                <input type="text" class="form-control input-lg" name="nuevoRuc"
+                                    placeholder="INGRESE EL RUC DE LA EMPRESA" required>
                             </div>
                         </div>
 
-                        <!--Entrada de seleccion de perfil-->
+                        <!--Entrada de contraseña-->
                         <div class="form-group">
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-users"></i></span>
-                                <select class="form-control input-lg" name="nuevoPerfil">
-                                    <option value="">Seleccione perfil</option>
-                                    <option value=1>ADMINISTRADOR</option>
-                                    <option value=2>ADMINISTRATIVO</option>
-                                    <option value=3>LOGISTICA</option>
-                                    <option value=4>ADMINISTRACION LOGISTICA</option>
-                                    <option value=5>MANTENIMIENTO</option>
-
-                                </select>
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <input type="text" class="form-control input-lg" name="nuevoCorreoEmpresa"
+                                    placeholder="INGRESE CORREO DE CONTACTO" required>
                             </div>
                         </div>
 
-                        <!--Entrada para subir foto-->
-                        <div class="form-group">
-                            <div class="panel">SUBIR FOTO</div>
-                            <input type="file" name="nuevaFoto" class="nuevaFoto">
-                            <p class="help-block">Peso maximo de la foto 2 MB</p>
-                            <img class="img-thumbnail previsualizar" width="100px"
-                                src="vistas/img/usuarios/default/anonymous.png" alt="">
-                        </div>
-
+                       
+                        
                     </div>
 
                 </div>
@@ -211,15 +197,15 @@
                     PIE DEL MODAL
           **************************************-->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-                    <button type="submit" class="btn btn-primary ">Guardar usuario</button>
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">SALIR</button>
+                    <button type="submit" class="btn btn-primary ">GUARDAR PROVEEDOR</button>
                 </div>
         </div>
 
 
         <?php
-            $crearUsuario = new ControladorUsuarios();
-            $crearUsuario -> ctrCrearUsuario();
+            $crearProveedor = new ControladorProveedor();
+            $crearProveedor -> ctrIngresarProveedores();
 
         ?>
 

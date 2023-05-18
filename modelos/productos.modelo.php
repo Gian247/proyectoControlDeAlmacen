@@ -6,15 +6,15 @@ class ModeloProductos{
     /*=============================================
 	MOSTRAR PRODUCTOS
 	=============================================*/
-    static public function mdlMostrarProductos($tabla,$item,$valor){
+    static public function mdlMostrarProductos($tabla,$item,$valor,$orden){
         
         if($valor != null){
-            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = $valor");
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = $valor ORDER BY $orden DESC");
             $stmt->execute();
             return $stmt->fetch();
             
         }else {
-            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY $orden DESC");
             $stmt->execute();
             return $stmt->fetchAll();
         }
@@ -47,6 +47,16 @@ class ModeloProductos{
 
 		$stmt = null;
 
+	}
+
+
+	static public function mdlMostrarSumaSalidas($tabla)
+	{
+		$stmt = Conexion::conectar()->prepare("SELECT SUM(salidas) as total FROM $tabla");
+		$stmt->execute();
+		return $stmt->fetch();
+		$stmt->close();
+		$stmt = null;
 	}
 
 }

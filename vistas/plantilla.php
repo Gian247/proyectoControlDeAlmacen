@@ -144,6 +144,8 @@ CUERPO DOCUMENTO
          $_GET["ruta"] == "solicitantes" ||
          $_GET["ruta"] == "productos" ||
          $_GET["ruta"] == "salidas" ||
+         $_GET["ruta"] == "editar-salida" ||
+         $_GET["ruta"] == "reportes" ||
          $_GET["ruta"] == "crear-salida" 
 
         ){
@@ -187,6 +189,7 @@ CUERPO DOCUMENTO
 <script src="vistas/js/productosEntradas.js"></script>
 <script src="vistas/js/solicitante.js"></script>
 <script src="vistas/js/salientes.js"></script>
+<script src="vistas/js/reportes.js"></script>
 
 
 <!-- <script src="vistas/js/productos.js"></script>

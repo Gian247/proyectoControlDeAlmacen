@@ -36,7 +36,7 @@ class ControladorProductosEntradas{
                                 "lote"=>$calculoTotal,
                                 "fecha"=>$_POST["nuevaFechaIngreso"]
                                 );
-                var_dump($calculoTotal);
+                
                 $respuesta = ModeloProductosEntradas::mdlIngresarProductosEntrada($tabla,$datos);
                 if($respuesta=="ok"){
                     echo '
@@ -129,7 +129,9 @@ class ControladorProductosEntradas{
 
         }
     }
-
+    /*=============================================
+		SUMA EL TOTAL DE PRODUCTOS DE UN LOTE
+	=============================================*/
     static public function ctrSumarProductosLote($item,$valor){
         $tabla = "producto";
         $respuesta = ModeloProductosEntradas::mdlSumarProductosLote($tabla,$item,$valor);
@@ -138,5 +140,6 @@ class ControladorProductosEntradas{
         
 
     }
+
     
 }

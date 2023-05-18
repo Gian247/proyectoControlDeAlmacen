@@ -46,7 +46,7 @@
               
               <tr>
                 <th>#</th>
-                <th>Codigo</th>
+                <th>Código Entrada Almacén</th>
                 <th>Proveedor</th>
                 <th>Fecha de Ingreso</th>
                 <th>Productos</th>
@@ -84,7 +84,7 @@
                   $actualizarTotalEntrada->ctrActualizarTablaIngreso($campo, $datos);
                 };
                 if(round($value["monto_ingreso"],2) != round($sumaTotalProductos["total"],2)){
-                  var_dump($value["monto_ingreso"],"diferentes");
+                  
                   $datos=array("id"=>$value["id_ingreso"],"nuevoValor"=>$sumaTotalProductos["total"]);
                   $campo = "monto_ingreso";
                   
@@ -106,7 +106,10 @@
                   <td>
 
                     <div class="btn-group">
-                      <button title="Agregar Producto" class="btn btn-success btnVerSolicitados" idEntrada="<?php echo $value["id_ingreso"];?>" fEntrada="<?php echo $value["fecha_ingreso"] ?>"><i class="fa fa-eye"></i></button>
+                      <button title="Agregar Producto" class="btn btn-success btnVerSolicitados" idEntrada="<?php echo $value["id_ingreso"];?>" fEntrada="<?php echo $value["fecha_ingreso"]; ?>"><i class="fa fa-eye"></i></button>
+                      <button class="btn btn-info btnImprimirProductosLoteEntrada" codigoEntradaAlmacen="<?php echo $value["id_ingreso"];?>" >
+                        <i class="fa fa-print">
+                      </i></button>
                       <!-- <button title="Editar Producto" class="btn btn-warning btnEditarPerfil" idPerfil="<?//php echo $value["id_ingreso"];?>" data-toggle="modal" data-target="#modalEditarPerfil"><i class="fa fa-pencil"></i></button> -->
                       <?//php if($_SESSION["perfil"]=="Administrador"):?>
                       <?//php endif; ?>

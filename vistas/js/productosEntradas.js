@@ -31,3 +31,18 @@ $(document).on("click",".btnEliminarEntradaProducto",function(){
         }
     })
 })
+
+
+/*=============================================
+IMPRIMIR FACTURA
+=============================================*/
+
+$(".tablas").on("click",".btnImprimirProductosLoteEntrada", function(){
+	
+	//Almacenamos en la variable que envia en boton
+	var codigoEntradaAlmacen=$(this).attr("codigoEntradaAlmacen");
+	//Solicitos a windows que me habra una nueva ventana
+	//haciendo la ruta donde esta la extension TCPDF
+    
+	window.open("extensiones/tcpdf/pdf/ingresoProductosLote.php?codigoIngresoProd="+codigoEntradaAlmacen,"_blank");
+})

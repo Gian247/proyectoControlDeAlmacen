@@ -63,7 +63,7 @@
                           <?php 
                 $item="codigo_ingreso";
                 $valor=$_GET["ingreso"];
-                  var_dump($valor);
+                 
                 $filtroProducto = ControladorProductosEntradas::ctrMostrarProductosEntradas($item,$valor);
               
                 foreach($filtroProducto as $key=>$value):?>

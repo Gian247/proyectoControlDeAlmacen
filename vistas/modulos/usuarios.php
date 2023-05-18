@@ -318,7 +318,7 @@
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                 <input type="password" class="form-control input-lg" name="editarPassword"
                                     placeholder="Escriba la nueva contraseña">
-                                <input type="hidden" id="passwordActual" name="passwordActual">
+                                <input type="text" id="passwordActual" name="passwordActual">
                             </div>
                         </div>
 

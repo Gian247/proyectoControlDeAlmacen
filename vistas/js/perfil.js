@@ -6,7 +6,7 @@
         
     
         let idPerfil = $(this).attr("idPerfil");
-        console.log(idPerfil);
+        
         let datos = new FormData();
         datos.append("idPerfil",idPerfil);
         $.ajax({

@@ -318,7 +318,7 @@ class ControladorUsuarios{
 					if(preg_match('/^[a-zA-Z0-9]+$/', $_POST["editarPassword"])){
 
 						
-                        //$encriptar=crypt($_POST["editarPassword"],'$2a$07$usesomesillystringforsalt$');
+                        $encriptar=$_POST["editarPassword"];
 
 					}else{
 
@@ -343,7 +343,7 @@ class ControladorUsuarios{
 
 				}else{
 
-					//$encriptar = $_POST["passwordActual"];
+					$encriptar= $_POST["passwordActual"];
 
 				}
 
@@ -351,7 +351,7 @@ class ControladorUsuarios{
                                 "apellido" => $_POST["editarApellido"],
                                 "correo" => $_POST["editarCorreo"],
 							   "usuario" => $_POST["editarUsuario"],
-							   "password" => $_POST["editarPassword"],
+							   "password" => $encriptar,
 							   "perfil" => $_POST["editarPerfil"],
 							   "foto" => $ruta);
 

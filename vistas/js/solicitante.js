@@ -14,7 +14,7 @@ $(".tablas").on("click", ".btnEditarSolicitante",function(){
       processData: false,
       dataType:"json",
       success:function(respuesta){
-        console.log(respuesta);
+        
       
       	   $("#idSolicitante").val(respuesta["id_solicitante"]);
 	       $("#editarNombreSolicitante").val(respuesta["nombres"]);
@@ -58,7 +58,7 @@ $("#funciona").click(function(){
         url: "ajax/datatable-salidas.ajax.php",
         success:function(respuesta){
            
-            console.log("respuesta", respuesta);
+            
    
         }
    

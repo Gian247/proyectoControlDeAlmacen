@@ -7,10 +7,11 @@ class ModeloEntradasAlmacen{
                     MOSTRAR ENTRADA
     **************************************-->*/
     static public function mdlMostrarEntradas($tabla,$item,$valor){
+        
         if($item!=null){
-            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE :item = :valor");
-            $stmt->bindParam(":item", $item, PDO::PARAM_STR);
-            $stmt->bindParam(":valor", $valor, PDO::PARAM_STR);
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :valorDeseado");
+            
+            $stmt->bindParam(":valorDeseado", $valor, PDO::PARAM_INT);
             $stmt->execute();
             return $stmt->fetch();
             

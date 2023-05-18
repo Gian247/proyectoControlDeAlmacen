@@ -33,7 +33,16 @@
         <div class="box-header with-border">
 
           <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarEntrada">Agregar Productos</button>
+          <div class="box-tools pull-right">
+          
+
+            <a href="vistas/modulos/descargarExcelProductos.php?reporteProductos=reporteOk">
+              <button class="btn btn-success" style="margin-top:5px">Exportar Excel</button>
+            </a>
+
         </div>
+        </div>
+        
 
 
         <div class="box-body">
@@ -59,7 +68,8 @@
             <?php 
               $item=null;
               $valor=null;
-              $productos = ControladorProductos::ctrMostrarProductos($item, $valor);
+              $orden="id_producto";
+              $productos = ControladorProductos::ctrMostrarProductos($item, $valor,$orden);
               
              
               foreach($productos as $key=>$value):?>

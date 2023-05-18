@@ -57,7 +57,7 @@ $(document).on("click",".btnEditarUsuario",function(){
     
 		success: function(respuesta){
             
-            console.log(respuesta);
+            
             
              $("#editarNombre").val(respuesta["nombres"]);
              $("#editarApellido").val(respuesta["apellidos"]);
@@ -90,8 +90,7 @@ $(document).on("click",".btnEditarUsuario",function(){
     
         var idUsuario = $(this).attr("idUsuario");
         var estadoUsuario = $(this).attr("estadoUsuario");
-        console.log(idUsuario);
-        console.log(estadoUsuario);
+        
 
         var datos = new FormData();
         datos.append("activarId", idUsuario);

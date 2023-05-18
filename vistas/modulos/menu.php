@@ -51,19 +51,6 @@
 	
 								</a>
 	
-							</li>
-							
-							
-	
-							<li>
-	
-								<a href="productos">
-	
-									<i class="fa fa-product-hunt"></i>
-									<span>Productos</span>
-	
-								</a>
-	
 							</li>';
 				}
 
@@ -125,7 +112,17 @@
 	
 							</a>
 	
-						</li>';
+						</li>
+						<li>
+	
+								<a href="productos">
+	
+									<i class="fa fa-product-hunt"></i>
+									<span>Productos</span>
+	
+								</a>
+	
+							</li>';
 						
 						echo '</ul>
 
@@ -135,7 +132,8 @@
 
 
 
-					echo ' <li class="treeview">
+					echo
+				' <li class="treeview">
 
 					<a href="#">
 	
@@ -173,19 +171,18 @@
 	
 							</a>
 	
+						</li>
+						<li>
+		
+							<a href="reportes">
+		
+								<i class="fa fa-circle-o"></i>
+								<span>Reporte de Salidas</span>
+		
+							</a>
+		
 						</li>';
-						if($_SESSION["perfil"]==1){
-							echo ' <li>
-		
-										<a href="reportes">
-		
-											<i class="fa fa-circle-o"></i>
-											<span>Reporte de Salidas</span>
-		
-										</a>
-		
-									</li>';
-						}
+						
 						echo '                </ul>
 
             		</li>';

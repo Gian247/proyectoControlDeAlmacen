@@ -430,7 +430,7 @@ $(".formularioSalida").on("click", "button.quitarProducto", function(){
 
     	// AGREGAR IMPUESTO
 	        
-        agregarImpuesto()
+        //	agregarImpuesto()
 
         // AGRUPAR PRODUCTOS EN FORMATO JSON
 
@@ -442,18 +442,29 @@ $(".formularioSalida").on("click", "button.quitarProducto", function(){
 
 })
 
+/*=============================================
+BOTON EDITAR SALIDA
+=============================================*/
+$(".tablas").on("click", ".btnEditarSalida", function(){
+
+	var idSalida = $(this).attr("idSalida");
+
+	window.location = "index.php?ruta=editar-salida&idSalida="+idSalida;
+
+
+})
 
 /*=============================================
 FUNCIÓN PARA DESACTIVAR LOS BOTONES AGREGAR CUANDO EL PRODUCTO YA HABÍA SIDO SELECCIONADO EN LA CARPETA
 =============================================*/
-
+//esta funcion sirve cuando editamos la tabla, bloquea los botones de los productos ya seleccionados
 function quitarAgregarProducto(){
 
 	//Capturamos todos los id de productos que fueron elegidos en la venta
 	var idProductos = $(".quitarProducto");
 
 	//Capturamos todos los botones de agregar que aparecen en la tabla
-	var botonesTabla = $(".tablaVentas tbody button.agregarProducto");
+	var botonesTabla = $(".tablaSalidas tbody button.agregarProducto");
 
 	//Recorremos en un ciclo para obtener los diferentes idProductos que fueron agregados a la venta
 	for(var i = 0; i < idProductos.length; i++){
@@ -484,4 +495,65 @@ $('.tablaSalidas').on( 'draw.dt', function(){
 
 	quitarAgregarProducto();
 
+})
+
+
+
+
+/*=========================================================================
+MOSTRAR PRODUCTOS DE LA VENTA EN MODAL
+===========================================================================*/
+$(".tablas").on("click", ".btnVisualizarSalida", function(){
+
+		let idSalida = $(this).attr("idSalida");
+        //console.log(idSalida);
+        let datos = new FormData();
+        datos.append("idSalida",idSalida);
+        $.ajax({
+            url:"ajax/salida.ajax.php",
+            method:"POST",
+            data: datos,
+            cache: false,
+            contentType: false,
+            processData: false,
+            dataType: "json",
+            success:function(respuesta){      
+				//console.log(respuesta["productos"]);
+				$(".visualizarTemporal").remove();
+				$(".tituloModalVisualizar").text("");
+				
+				
+				var productos=  JSON.parse(respuesta["productos"]);
+				var filas='';
+				$(".tituloModalVisualizar").append("Código Salida: "+respuesta["codigo_salida"] );
+                for (let index = 0; index < productos.length; index++) {
+					//const element = array[index];
+					//console.log(respuesta["productos"]["id"]);
+					
+					filas=filas+"<tr class='visualizarTemporal'><td>"+productos[index]["id"]+"</td><td>"+productos[index]["descripcion"]+"</td><td>"+productos[index]["cantidad"]+"</td><td>"+productos[index]["precio"]+"</td></tr>";
+					
+				}
+				$("#visualizarProd").append(filas);
+				 
+    
+    
+    
+            }
+        })
+
+
+})
+
+
+/*=============================================
+IMPRIMIR FACTURA
+=============================================*/
+
+$(".tablas").on("click",".btnImprimirFactura", function(){
+	
+	//Almacenamos en la variable que envia en boton
+	var codigoSalida=$(this).attr("codigoSalida");
+	//Solicitos a windows que me habra una nueva ventana
+	//haciendo la ruta donde esta la extension TCPDF
+	window.open("extensiones/tcpdf/pdf/factura.php?codigo="+codigoSalida,"_blank");
 })

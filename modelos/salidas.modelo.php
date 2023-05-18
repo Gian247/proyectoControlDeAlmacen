@@ -50,10 +50,93 @@ class ModeloSalidas{
 	}
 
     
-    static public function mdlEditarSalida(){
+    static public function mdlEditarSalida($tabla,$datos){
+
+        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET  id_solicitante = :id_solicitante, id_usuario= :id_usuario, productos = :productos, total_valor_salida= :total WHERE codigo_salida = :codigo");
+
+		$stmt->bindParam(":codigo", $datos["codigo"], PDO::PARAM_INT);
+		$stmt->bindParam(":id_solicitante", $datos["id_solicitante"], PDO::PARAM_INT);
+		$stmt->bindParam(":id_usuario", $datos["id_usuario"], PDO::PARAM_INT);
+		$stmt->bindParam(":productos", $datos["productos"], PDO::PARAM_STR);
+		$stmt->bindParam(":total", $datos["total"], PDO::PARAM_STR);
+		
+
+		if($stmt->execute()){
+
+			return "ok";
+
+		}else{
+
+			return "error";
+		
+		}
+
+		$stmt->close();
+		$stmt = null;
+
 
     }
     static public function mdlBorrarSalida(){
         
     }
+	/*=============================================
+					RANGO DE FECHAS
+	=============================================*/
+	static public function mdlRangoFechasSalidas($tabla, $fechaInicial, $fechaFinal){
+		if($fechaInicial == null){
+
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY id_salida DESC");
+
+			$stmt -> execute();
+
+			return $stmt -> fetchAll();
+		}else if($fechaInicial == $fechaFinal){
+
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE fecha_salida like '%$fechaFinal%' ORDER BY id_salida DESC");
+			
+
+			$stmt -> execute();
+
+			return $stmt -> fetchAll();
+		}else {
+			//Actualmente el plugin me toma los ultimos 7 dias hasta el dia de ayer
+			//LO que se hace es incrementar el uno para que tome hasta el dia de hoy
+			$fechaActual= new DateTime();
+			
+
+			//Adicionamos 1 dia mas
+			$fechaActual->add(new DateInterval("P1D"));
+	
+			
+			$fechaActualMasUno=$fechaActual->format("Y-m-d");
+			
+
+			$fechaFinal2=new DateTime($fechaFinal);
+			
+		
+			$fechaFinal2->add(new DateInterval("P1D"));
+			
+
+			$fechaFinalMasUno=$fechaFinal2->format("Y-m-d");
+
+
+			if($fechaFinalMasUno == $fechaActualMasUno){
+
+				$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE fecha_salida BETWEEN '$fechaInicial' AND '$fechaFinalMasUno' ORDER BY id_salida DESC");
+
+			}else{
+				
+				$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE fecha_salida BETWEEN '$fechaInicial' AND '$fechaFinal' ORDER BY id_salida DESC");
+
+			}
+
+
+			$stmt -> execute();
+
+			return $stmt -> fetchAll();
+		}
+	}
+
+
+	
 }

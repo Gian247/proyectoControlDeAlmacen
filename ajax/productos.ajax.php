@@ -13,8 +13,8 @@ class AjaxProductos{
     public function ajaxEditarProducto(){
         $item = "id_producto";
         $valor = $this->idProducto;
-
-        $respuesta = ControladorProductos::ctrMostrarProductos($item, $valor);
+        $orden="id_producto";
+        $respuesta = ControladorProductos::ctrMostrarProductos($item, $valor,$orden);
         echo json_encode($respuesta);
     }
 

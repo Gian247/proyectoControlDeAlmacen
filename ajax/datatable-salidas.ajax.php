@@ -11,8 +11,9 @@ class TablaProductoSalidas{
     public function mostrarTablaProductosSalidas(){
         $item = null;
     	$valor = null;
+        $orden="id_producto";
 
-        $productos = ControladorProductos::ctrMostrarProductos($item, $valor);
+        $productos = ControladorProductos::ctrMostrarProductos($item, $valor,$orden);
         if(count($productos)==0){
             echo '{"data": []}';
             return;
