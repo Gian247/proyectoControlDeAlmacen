@@ -190,6 +190,7 @@ CUERPO DOCUMENTO
 <script src="vistas/js/solicitante.js"></script>
 <script src="vistas/js/salientes.js"></script>
 <script src="vistas/js/reportes.js"></script>
+<script src="vistas/js/proveedores.js"></script>
 
 
 <!-- <script src="vistas/js/productos.js"></script>

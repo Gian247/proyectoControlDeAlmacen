@@ -134,7 +134,13 @@ if ($_SESSION["perfil"] == "Especial") {
                 </tr>';
             }
 
+
+            $envioDeNotificacionCorreo=ControladorProductos::ctrMostrarProductos("producto",null,"id_producto");
+            var_dump($envioDeNotificacionCorreo);
+
             ?>
+
+
 
           </tbody>
 

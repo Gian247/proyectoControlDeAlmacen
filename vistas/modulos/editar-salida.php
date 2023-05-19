@@ -171,7 +171,7 @@
                   //En esta variable se almacena el stock actual del producto + el estock solicitado en la orden
                   $stockAntiguo = $respuesta["stockDisponible"] + $value["cantidad"];
                   //Empezamos a imprimir los campos de las ordenes
-                  echo '<div class="row" style="padding:5px 15px">
+                  echo '<div class="row activarBoton" style="padding:5px 15px">
             
                         <div class="col-xs-6" style="padding-right:0px">
             
@@ -212,7 +212,7 @@
 
               </div>
               <!-- Este campo almacena las productos seleccionados -->
-              <input type="text" id="listaProductos" name="listaProductos" >
+              <input type="hidden" id="listaProductos" name="listaProductos" >
 
               <!--=====================================================0
               BOTÓN PARA AGREGAR PRODUCTO solo en pantallas pequeñas
@@ -259,7 +259,7 @@
 
                             <span class="input-group-addon"><i class="ion ion-social-usd"></i></span>
 
-                            <input type="text" class="form-control input-lg" id="nuevoTotalVenta" name="nuevoTotalVenta" total="" placeholder="00000" readonly required>
+                            <input type="text" class="form-control input-lg" id="nuevoTotalVenta" name="nuevoTotalVenta" value="<?php echo $salida["total_valor_salida"] ?>" total=""  readonly required>
 
                             <input type="hidden" name="totalVenta" id="totalVenta" value="<?php echo $salida["total_valor_salida"] ?>">
 
@@ -287,8 +287,8 @@
         </div>
 
         <div class="box-footer">
-
-          <button type="submit" class="btn btn-primary pull-right">Guardar Salida de Producto</button>
+       
+          <button type="submit" class="btn btn-primary pull-right botonGuardarSalida" disabled>Guardar Salida de Producto</button>
 
         </div>
 

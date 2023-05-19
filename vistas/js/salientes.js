@@ -65,7 +65,7 @@ AGREGANDO PRODUCTOS A LA VENTA DESDE LA TABLA
 $(".tablaSalidas tbody").on("click", "button.agregarProducto", function(){
     //Almaceno en una variable el valor del id del producto que viene  incrustado en la etiqueta
 	var idProducto = $(this).attr("idProducto");
-    
+    console.log($(".activarBoton").length);
 	//Remuevo la clase que le da el color azul y le quito la clase agregar producto
 	$(this).removeClass("btn-primary agregarProducto");
 	//Le agrego a boton la clase default que le asigana un color gris
@@ -112,7 +112,7 @@ $(".tablaSalidas tbody").on("click", "button.agregarProducto", function(){
 
 			$(".nuevoProducto").append(
 
-				'<div class="row" style="padding:5px 15px">'+
+				'<div class="row activarBoton" style="padding:5px 15px">'+
   
 				'<!-- Descripción del producto -->'+
 				
@@ -165,12 +165,15 @@ $(".tablaSalidas tbody").on("click", "button.agregarProducto", function(){
 	        // PONER FORMATO AL PRECIO DE LOS PRODUCTOS
 
 	        $(".nuevoPrecioProducto").number(true, 2);
+			desbilitarBotonGuardarSalida();
 
       	}
 
      })
 
 });
+
+
 
 
 
@@ -257,7 +260,7 @@ MODIFICAR LA CANTIDAD
 $(".formularioSalida").on("change", "input.nuevaCantidadProducto", function(){
 	//OBTENEMOS EL VALOR DEL CAMPO DE PRECIO QUE VIENE YA EN EL CAMPO
 	var precio = $(this).parent().parent().children(".ingresoPrecio").children().children(".nuevoPrecioProducto");
-	
+	desbilitarBotonGuardarSalida();
 	//Almacenamos el valor del total(cantidad*precio)
 	//De esta estiqueta obtenermos el valor * y utilizamos el parametro incrustado en la etuqeta desde la base de datos
 	var precioFinal = $(this).val() * precio.attr("precioreal");
@@ -388,7 +391,7 @@ localStorage.removeItem("quitarProducto");
 $(".formularioSalida").on("click", "button.quitarProducto", function(){
 
 	$(this).parent().parent().parent().parent().remove();
-
+	
 	var idProducto = $(this).attr("idProducto");
 
 	/*=============================================
@@ -412,6 +415,7 @@ $(".formularioSalida").on("click", "button.quitarProducto", function(){
 	localStorage.setItem("quitarProducto", JSON.stringify(idQuitarProducto));
 
 	$("button.recuperarBoton[idProducto='"+idProducto+"']").removeClass('btn-default');
+	desbilitarBotonGuardarSalida();
 
 	$("button.recuperarBoton[idProducto='"+idProducto+"']").addClass('btn-primary agregarProducto');
 	//Si no exixten hijos, en el sistema seria que si no se han seleccionado productos
@@ -435,7 +439,7 @@ $(".formularioSalida").on("click", "button.quitarProducto", function(){
         // AGRUPAR PRODUCTOS EN FORMATO JSON
 
         listarProductos()
-
+		
 	} 
 	
 
@@ -557,3 +561,27 @@ $(".tablas").on("click",".btnImprimirFactura", function(){
 	//haciendo la ruta donde esta la extension TCPDF
 	window.open("extensiones/tcpdf/pdf/factura.php?codigo="+codigoSalida,"_blank");
 })
+/*=============================================
+DESABILITAR BOTON DE GUARDAR SALIDA SI NO SE ENCUENTRA NINGUN SELECCIONADO
+=============================================*/
+var comrobar;
+console.log(comrobar);
+function desbilitarBotonGuardarSalida(){
+	comrobar=$(".activarBoton").length;
+	console.log(comrobar);
+	if(comrobar>0){
+		
+		$(".botonGuardarSalida").removeAttr('disabled');
+	
+	}else if(comrobar==0){
+		//console.log("iu");
+		$(".botonGuardarSalida").attr('disabled','disabled');
+	}
+}
+/*=============================================
+BOTON DE REGRESAR DEL MENU DE EDITAR PEDIDO
+=============================================*/
+
+$(".regresarSalidas").click(function(){
+    window.location="salidas";
+});

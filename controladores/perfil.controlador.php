@@ -119,6 +119,6 @@ class ControladorPerfil{
             ELIMINAR PERFILES
     ---------------------------------------- */
     static public function ctrEliminarPerfil(){
-
+        
     }
 }

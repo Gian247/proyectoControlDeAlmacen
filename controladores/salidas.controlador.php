@@ -168,7 +168,7 @@ class ControladorSalidas{
 					$tablaProductos = "producto";
 					$item = "id_producto";
 					$valor = $value["id"];
-					$orden = "id";
+					$orden = "id_producto";
 
 					//Consulta para traer productos con el id obtenido
 					$traerProducto = ModeloProductos::mdlMostrarProductos($tablaProductos, $item, $valor,$orden);
@@ -215,7 +215,7 @@ class ControladorSalidas{
 
 					$item_2 = "id_producto";
 					$valor_2 = $value["id"];
-					$orden = "id";
+					$orden = "id_producto";
 
 					$traerProducto_2 = ModeloProductos::mdlMostrarProductos($tablaProductos_2, $item_2, $valor_2,$orden);
 

@@ -52,37 +52,35 @@
                             <th>Telefono</th>
                             <th>Ruc</th>
                             <th>Correo Electronico</th>
-                            
+
                             <th>Acciones</th>
                         </tr>
 
                     </thead>
                     <tbody>
-                        <?php 
-                $item=null;
-                $valor=null;
+                        <?php
+                        $item = null;
+                        $valor = null;
 
-                $proveedores=ControladorProveedor::ctrMostrarProveedor($item,$valor);
-                foreach($proveedores as $key=>$value):?>
-                        <tr>
-                            <td><?php echo ($key+1); ?></td>
-                            <td><?php echo $value["nombre_proveedor"]; ?></td>
-                            <td><?php echo $value["rubro"]; ?></td>
-                            <td><?php echo $value["contacto"]; ?></td>
-                            <td><?php echo $value["telefono"]; ?></td>
-                            <td><?php echo $value["ruc"]; ?></td>
-                            <td><?php echo $value["correo"]; ?></td>
-                            <td>
+                        $proveedores = ControladorProveedor::ctrMostrarProveedor($item, $valor);
+                        foreach ($proveedores as $key => $value) : ?>
+                            <tr>
+                                <td><?php echo ($key + 1); ?></td>
+                                <td><?php echo $value["nombre_proveedor"]; ?></td>
+                                <td><?php echo $value["rubro"]; ?></td>
+                                <td><?php echo $value["contacto"]; ?></td>
+                                <td><?php echo $value["telefono"]; ?></td>
+                                <td><?php echo $value["ruc"]; ?></td>
+                                <td><?php echo $value["correo"]; ?></td>
+                                <td>
 
-                                <div class="btn-group">
-                                    <button class="btn btn-warning btnEditarProveedor" data-toggle="modal"
-                                        idUsuario="<?php echo $value["id_proveedor"] ;?>"
-                                        data-target="#modalEditarProveedor"><i class="fa fa-pencil"></i></button>
-                                    <button class="btn btn-danger"><i class="fa fa-times btnEliminarProveedor" idProveedor="<?php echo $value["id_proveedor"];?>" proveedor="<?php echo $value["nombre_proveedor"];?>"></i></button>
-                                </div>
-                            </td>
+                                    <div class="btn-group">
+                                        <button class="btn btn-warning btnEditarProveedor" data-toggle="modal" idProveedor="<?php echo $value["id_proveedor"]; ?>" data-target="#modalEditarProveedor"><i class="fa fa-pencil"></i></button>
+                                        <button class="btn btn-danger"><i class="fa fa-times btnEliminarProveedor" idProveedor="<?php echo $value["id_proveedor"]; ?>" proveedor="<?php echo $value["nombre_proveedor"]; ?>"></i></button>
+                                    </div>
+                                </td>
 
-                        </tr>
+                            </tr>
 
 
                         <?php endforeach; ?>
@@ -133,12 +131,13 @@
                 <div class="modal-body">
 
                     <div class="box-body">
+
+
                         <!--Entrada de la empresa-->
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control input-lg" name="nuevoProveedor"
-                                    placeholder="INGRESE EL NOMBRE DE LA EMPRESA" required>
+                                <input type="text" class="form-control input-lg" name="nuevoProveedor" placeholder="INGRESE EL NOMBRE DE LA EMPRESA" required>
                             </div>
                         </div>
 
@@ -146,8 +145,7 @@
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control input-lg" name="nuevoRubro"
-                                    placeholder="INGRESE SECTOR DE COMERCIO DE LA EMPRESA" required>
+                                <input type="text" class="form-control input-lg" name="nuevoRubro" placeholder="INGRESE SECTOR DE COMERCIO DE LA EMPRESA" required>
                             </div>
                         </div>
 
@@ -156,40 +154,36 @@
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control input-lg" name="nuevoContactoEmpresa"
-                                    placeholder="INGRESE EL NOMBRE DEL REPRESENTANTE" required>
+                                <input type="text" class="form-control input-lg" name="nuevoContactoEmpresa" placeholder="INGRESE EL NOMBRE DEL REPRESENTANTE" required>
                             </div>
                         </div>
 
 
-                        <!--Entrada de usuario-->
+                        <!--Entrada de telefono-->
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                                <input type="text" class="form-control input-lg" name="nuevoTelefono" id="nuevoUsuario"
-                                    placeholder="# CONTACTO( 0156466 / 984578457)" required>
+                                <input type="text" class="form-control input-lg" name="nuevoTelefono" id="nuevoUsuario" placeholder="# CONTACTO( 0156466 / 984578457)" required>
                             </div>
                         </div>
-                        <!--Entrada de contraseña-->
+                        <!--Entrada de ruc-->
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input type="text" class="form-control input-lg" name="nuevoRuc"
-                                    placeholder="INGRESE EL RUC DE LA EMPRESA" required>
+                                <input type="text" class="form-control input-lg" name="nuevoRuc" placeholder="INGRESE EL RUC DE LA EMPRESA" required>
                             </div>
                         </div>
 
-                        <!--Entrada de contraseña-->
+                        <!--Entrada de correo-->
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input type="text" class="form-control input-lg" name="nuevoCorreoEmpresa"
-                                    placeholder="INGRESE CORREO DE CONTACTO" required>
+                                <input type="text" class="form-control input-lg" name="nuevoCorreoEmpresa" placeholder="INGRESE CORREO DE CONTACTO" required>
                             </div>
                         </div>
 
-                       
-                        
+
+
                     </div>
 
                 </div>
@@ -204,8 +198,8 @@
 
 
         <?php
-            $crearProveedor = new ControladorProveedor();
-            $crearProveedor -> ctrIngresarProveedores();
+        $crearProveedor = new ControladorProveedor();
+        $crearProveedor->ctrIngresarProveedores();
 
         ?>
 
@@ -215,10 +209,10 @@
 </div>
 
 <!-- **********************************
-          MODAL EDITAR USUARIO
+          MODAL EDITAR PROVEEDOR
  **************************************-->
 
-<div id="modalEditarUsuario" class="modal fade" role="dialog">
+<div id="modalEditarProveedor" class="modal fade" role="dialog">
 
     <div class="modal-dialog">
 
@@ -246,74 +240,55 @@
                 <div class="modal-body">
 
                     <div class="box-body">
-                        <!--Entrada de nombre-->
+                        <!--Entrada de la empresa-->
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control input-lg" id="editarNombre" name="editarNombre"
-                                    value="" required>
+                                <input type="text" class="form-control input-lg" name="editarProveedor" id="editarProveedor" placeholder="INGRESE EL NOMBRE DE LA EMPRESA" required>
+                                <input type="hidden" name="idProveedor" id="idProveedor">
                             </div>
                         </div>
-                        <!--Entrada de apellido-->
+
+                        <!--Entrada de rubro de la empresa-->
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control input-lg" id="editarApellido" name="editarApellido" placeholder="" required>
+                                <input type="text" class="form-control input-lg" name="editarRubro" id="editarRubro" placeholder="INGRESE SECTOR DE COMERCIO DE LA EMPRESA" required>
+                            </div>
+                        </div>
+
+                        <!--Entrada de representante-->
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input type="text" class="form-control input-lg" name="editarContactoEmpresa" id="editarContactoEmpresa" placeholder="INGRESE EL NOMBRE DEL REPRESENTANTE" required>
+                            </div>
+                        </div>
+
+
+                        <!--Entrada de telefono-->
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                <input type="text" class="form-control input-lg" name="editarTelefono" id="editarTelefono" placeholder="# CONTACTO( 0156466 / 984578457)" required>
+                            </div>
+                        </div>
+                        <!--Entrada de ruc-->
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <input type="text" class="form-control input-lg" name="editarRuc" id="editarRuc" placeholder="INGRESE EL RUC DE LA EMPRESA" required>
                             </div>
                         </div>
 
                         <!--Entrada de correo-->
-
-                        <div class="form-group">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control input-lg" id="editarCorreo" name="editarCorreo"
-                                    placeholder="" required>
-                            </div>
-                        </div>
-                        <!--Entrada de usuario-->
-                        <div class="form-group">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                                <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario"
-                                    value="" readonly required>
-                            </div>
-                        </div>
-                        <!--Entrada de contraseña-->
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input type="password" class="form-control input-lg" name="editarPassword"
-                                    placeholder="Escriba la nueva contraseña">
-                                <input type="hidden" id="passwordActual" name="passwordActual">
+                                <input type="text" class="form-control input-lg" name="editarCorreoEmpresa" id="editarCorreoEmpresa" placeholder="INGRESE CORREO DE CONTACTO" required>
                             </div>
                         </div>
-
-                        <!--Entrada de seleccion de perfil-->
-                        <div class="form-group">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-users"></i></span>
-                                <select class="form-control input-lg" name="editarPerfil">
-                                    <option value="" id="editarPerfil">Seleccione perfil</option>
-                                    <option value=1>ADMINISTRADOR</option>
-                                    <option value=2>ADMINISTRATIVO</option>
-                                    <option value=3>LOGISTICA</option>
-                                    <option value=4>ADMINISTRACION LOGISTICA</option>
-                                    <option value=5>MANTENIMIENTO</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <!--Entrada para subir foto-->
-                        <div class="form-group">
-                            <div class="panel">SUBIR FOTO</div>
-                            <input type="file" name="editarFoto" class="nuevaFoto">
-                            <p class="help-block">Peso maximo de la foto 2 MB</p>
-                            <img class="img-thumbnail previsualizar" width="100px"
-                                src="vistas/img/usuarios/default/anonymous.png" alt="">
-                            <input type="hidden" name="fotoActual" id="fotoActual">
-                        </div>
-
                     </div>
 
                 </div>
@@ -328,10 +303,10 @@
 
 
         <?php
-         $editarUsuario = new ControladorUsuarios();
-         $editarUsuario -> ctrEditarUsuario();
+        $editarProveedor= new ControladorProveedor();
+        $editarProveedor->ctrEditarProveedor()
 
-    ?>
+        ?>
 
         </form>
 
@@ -340,6 +315,6 @@
 
 <?php
 
- $borrarUsuarios = new ControladorUsuarios();
- $borrarUsuarios->ctrBorrarUsuario();
+$borrarProveedor = new ControladorProveedor();
+$borrarProveedor->ctrBorrarProveedor();
 ?>

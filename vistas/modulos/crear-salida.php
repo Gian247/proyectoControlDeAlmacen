@@ -157,13 +157,13 @@
               ENTRADA PARA AGREGAR PRODUCTO
               ======================================-->
 
-              <div class="form-group row nuevoProducto">
+              <div class="form-group row nuevoProducto" id="nuevoProducto">
 
 
 
               </div>
               <!-- Este campo almacena las productos seleccionados -->
-              <input type="text" id="listaProductos" name="listaProductos">
+              <input type="hidden" id="listaProductos" name="listaProductos">
 
               <!--=====================================================0
               BOTÓN PARA AGREGAR PRODUCTO solo en pantallas pequeñas
@@ -239,7 +239,7 @@
 
         <div class="box-footer">
 
-          <button type="submit" class="btn btn-primary pull-right">Guardar Salida de Producto</button>
+          <button type="submit" class="btn btn-primary pull-right botonGuardarSalida" disabled>Guardar de Producto</button>
 
         </div>
 

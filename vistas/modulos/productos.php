@@ -46,12 +46,13 @@
 
 
         <div class="box-body">
-          <table class="table table-bordered table-striped tablas dt-responsive" >
+          <table class="table table-bordered table-striped tablas " >
 
             <thead>
               
               <tr>
                 <th>#</th>
+                <th>Lote Ingreso</th>
                 <th>Codigo</th>
                 <th>Producto</th>
                 <th>Categoria</th>
@@ -81,12 +82,13 @@
 
                 <tr>
                   <td><?php echo ($key+1); ?></td>
+                  <td><?php echo $value["codigo_ingreso"]; ?></td>
                   <td><?php echo $value["codigo_producto"]; ?></td>
                   <td><?php echo $value["descripcion"]; ?></td>
                   <td><?php echo $categoria["categoria"]; ?></td>
                   <td><?php echo $value["stockDisponible"]; ?></td>
-                  <td><?php echo $value["costo_unitario"]; ?></td>
-                  <td><?php echo $value["costo_lote"]; ?></td>
+                  <td><?php echo "S/. ".$value["costo_unitario"]; ?></td>
+                  <td><?php echo "S/. ".$value["costo_lote"]; ?></td>
                   <td><?php echo $value["fecha_ingreso"]; ?></td>
 
                  
