@@ -1,10 +1,10 @@
 <?php
-//   if ($_SESSION["perfil"]=="Vendedor" || $_SESSION["perfil"]=="Especial") {
-//   echo '<script>
-//       window.location="inicio";
-//     </script>';
-//   return;
-//   }
+   if ($_SESSION["perfil"]!="1") {
+   echo '<script>
+       window.location="inicio";
+     </script>';
+   return;
+   }
 ?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->

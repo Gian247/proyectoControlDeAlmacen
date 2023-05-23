@@ -51,4 +51,15 @@ class ModeloEntradasAlmacen{
         };
 
     }
+
+    /*=============================================
+				SUMAR EL TOTAL DE INGRESOS
+	=============================================*/
+	static public function mdlSumaTotalIngresos($tabla){
+		$stmt = Conexion::conectar()->prepare("SELECT SUM(monto_ingreso) as total FROM $tabla");
+		$stmt->execute();
+		return $stmt->fetch();
+		$stmt->close();
+		$stmt = null;
+	}
 }

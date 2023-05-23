@@ -1,10 +1,10 @@
 <?php
-//   if ($_SESSION["perfil"]=="Vendedor") {
-//   echo '<script>
-//       window.location="inicio";
-//     </script>';
-//   return;
-//   }
+   if ($_SESSION["perfil"]!="1" && $_SESSION["perfil"]!="2" && $_SESSION["perfil"]!="3") {
+   echo '<script>
+       window.location="inicio";
+     </script>';
+   return;
+   }
 ?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -40,7 +40,7 @@
 
 
         <div class="box-body">
-          <table class="table table-bordered table-striped tablas dt-responsive" >
+          <table class="table table-bordered table-striped tablas " >
 
             <thead>
               
@@ -78,9 +78,9 @@
 
                     <div class="btn-group">
                       <button class="btn btn-warning btnEditarSolicitante" idSolicitante="<?php echo $value["id_solicitante"];?>" data-toggle="modal" data-target="#modalEditarSolicitante"><i class="fa fa-pencil"></i></button>
-                      <?//php if($_SESSION["perfil"]=="Administrador"):?>
+                      <?php if($_SESSION["perfil"]=="1"):?>
                       <button class="btn btn-danger btnEliminarSolicitante" idSolicitante="<?php echo $value["id_solicitante"];?>"><i class="fa fa-times"></i></button>
-                      <?//php endif; ?>
+                      <?php endif; ?>
                     </div>
                   </td>
 

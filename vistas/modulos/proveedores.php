@@ -1,10 +1,10 @@
 <?php
-//   if ($_SESSION["perfil"]=="Vendedor" || $_SESSION["perfil"]=="Especial") {
-//   echo '<script>
-//       window.location="inicio";
-//     </script>';
-//   return;
-//   }
+   if ($_SESSION["perfil"]!="1" && $_SESSION["perfil"]!="2" && $_SESSION["perfil"]!="3") {
+   echo '<script>
+       window.location="inicio";
+     </script>';
+   return;
+   }
 ?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -75,8 +75,11 @@
                                 <td>
 
                                     <div class="btn-group">
+                                    
                                         <button class="btn btn-warning btnEditarProveedor" data-toggle="modal" idProveedor="<?php echo $value["id_proveedor"]; ?>" data-target="#modalEditarProveedor"><i class="fa fa-pencil"></i></button>
+                                    <?php if($_SESSION["perfil"]=="1"):?>
                                         <button class="btn btn-danger"><i class="fa fa-times btnEliminarProveedor" idProveedor="<?php echo $value["id_proveedor"]; ?>" proveedor="<?php echo $value["nombre_proveedor"]; ?>"></i></button>
+                                    <?php endif; ?>
                                     </div>
                                 </td>
 

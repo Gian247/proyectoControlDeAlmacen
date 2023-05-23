@@ -4,7 +4,7 @@
 
         <ul class="sidebar-menu" data-widget="tree">
             <?php
-				if($_SESSION["perfil"]==1){
+				
 					echo '<li class="active">
 
 							<a href="inicio">
@@ -14,9 +14,13 @@
 			
 							</a>
 	
-						</li>
-	
-						<li>
+						</li>';
+
+				
+
+
+				if($_SESSION["perfil"]==1 ){
+					echo '<li>
 			
 							<a href="usuarios">
 			
@@ -25,14 +29,8 @@
 			
 							</a>
 			
-						</li>';
-
-				}
-
-				if($_SESSION["perfil"]==1 || $_SESSION["perfil"]=="Especial"){
-
-					echo '	
-							<li>
+						</li>
+						<li>
 
 								<a href="perfil">
 
@@ -41,7 +39,15 @@
 
 								</a>
 
-							</li>
+						</li>
+						';
+
+				}
+
+				if($_SESSION["perfil"]=="1" || $_SESSION["perfil"]=="2" || $_SESSION["perfil"]=="3"){
+
+					echo '	
+							
 							<li>
 
 								<a href="categorias">
@@ -54,7 +60,7 @@
 							</li>';
 				}
 
-				if($_SESSION["perfil"]==1 || $_SESSION["perfil"]=="Vendedor"){
+				if($_SESSION["perfil"]=="1" || $_SESSION["perfil"]=="2" || $_SESSION["perfil"]=="3"){
 				echo '<li>
 
 						<a href="solicitantes">
@@ -68,7 +74,7 @@
 
 				}
 
-				if($_SESSION["perfil"]==1 || $_SESSION["perfil"]=="Vendedor"){
+				if($_SESSION["perfil"]=="1" || $_SESSION["perfil"]=="2" || $_SESSION["perfil"]=="3"){
 					
 
 
@@ -160,19 +166,24 @@
 	
 							</a>
 	
-						</li>
+						</li>';
+						if($_SESSION["perfil"]=="1" || $_SESSION["perfil"]=="3"){
+							echo
+							'<li>
 	
-						<li>
+								<a href="crear-salida">
 	
-							<a href="crear-salida">
+									<i class="fa fa-circle-o"></i>
+									<span>Crear Salida</span>
 	
-								<i class="fa fa-circle-o"></i>
-								<span>Crear Salida</span>
+								</a>
 	
-							</a>
-	
-						</li>
-						<li>
+							</li>';
+
+						}
+
+						
+						echo '<li>
 		
 							<a href="reportes">
 		

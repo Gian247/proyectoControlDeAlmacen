@@ -1,10 +1,10 @@
 <?php
-//   if ($_SESSION["perfil"]=="Vendedor") {
-//   echo '<script>
-//       window.location="inicio";
-//     </script>';
-//   return;
-//   }
+   if ($_SESSION["perfil"]!="1" && $_SESSION["perfil"]!="2" && $_SESSION["perfil"]!="3") {
+  echo '<script>
+      window.location="inicio";
+      </script>';
+      return;
+  }
 ?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -65,10 +65,13 @@
                   <td>
 
                     <div class="btn-group">
-                      <button class="btn btn-warning btnEditarCategoria" idCategoria="<?php echo $value["id_categoria"];?>" data-toggle="modal" data-target="#modalEditarCategoria"><i class="fa fa-pencil"></i></button>
-                      <?//php if($_SESSION["perfil"]=="Administrador"):?>
+                      
+                      <?php if($_SESSION["perfil"]=="1"):?>
+                        <button class="btn btn-warning btnEditarCategoria" idCategoria="<?php echo $value["id_categoria"];?>" data-toggle="modal" data-target="#modalEditarCategoria"><i class="fa fa-pencil"></i></button>
                         <button class="btn btn-danger btnEliminarCategoria" idCategoria="<?php echo $value["id_categoria"];?>"><i class="fa fa-times"></i></button>
-                      <?//php endif; ?>
+                      <?php else:?>
+                        <button class="btn btn-default">No Autorizado</button>
+                      <?php endif; ?>
                     </div>
                   </td>
 

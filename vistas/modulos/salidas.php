@@ -1,10 +1,10 @@
 <?php
-if ($_SESSION["perfil"] == "Especial") {
+if ($_SESSION["perfil"]!="1" && $_SESSION["perfil"]!="2" && $_SESSION["perfil"]!="3") {
   echo '<script>
       window.location="inicio";
     </script>';
   return;
-}
+  }
 ?>
 <div class="content-wrapper">
 
@@ -12,7 +12,7 @@ if ($_SESSION["perfil"] == "Especial") {
 
     <h1>
 
-      Administrar ventas
+      Administrar Salidas
 
     </h1>
 
@@ -123,8 +123,11 @@ if ($_SESSION["perfil"] == "Especial") {
                       <button class="btn btn-info btnImprimirFactura" codigoSalida="' . $value["id_salida"] . '">
                         <i class="fa fa-print">
                       </i></button>
-                      <button title="Visualizar Productos asignados" class="btn btn-success   btnVisualizarSalida" data-toggle="modal" data-target="#modalVisualizarProductos" idSalida="' . $value["id_salida"] . '"><i class="fa fa-eye"></i></button>
-                      <button class="btn btn-warning btnEditarSalida" idSalida="' . $value["id_salida"] . '"><i class="fa fa-pencil"></i></button>';
+                      <button title="Visualizar Productos asignados" class="btn btn-success   btnVisualizarSalida" data-toggle="modal" data-target="#modalVisualizarProductos" idSalida="' . $value["id_salida"] . '"><i class="fa fa-eye"></i></button>';
+                      if($_SESSION["perfil"]=="1"){
+                        echo '<button class="btn btn-warning btnEditarSalida" idSalida="' . $value["id_salida"] . '"><i class="fa fa-pencil"></i></button>';
+                      }
+                      
 
               
               echo '</div>  
@@ -136,7 +139,16 @@ if ($_SESSION["perfil"] == "Especial") {
 
 
             $envioDeNotificacionCorreo=ControladorProductos::ctrMostrarProductos("producto",null,"id_producto");
-            var_dump($envioDeNotificacionCorreo);
+            foreach ($envioDeNotificacionCorreo as $key => $value) {
+              if($value["stockDisponible"]==0 && $value["envio_alerta"]==0){
+                $destino= "gianfrancoflores.pacheco@gmail.com";
+                $nombre="Gianfranco Flores";
+                $mensaje="Hola estimado usuario te informamos que el producto agoto su stock disponible";
+                $contenido="Nombre: ". $nombre ."\nMensaje: " . $mensaje;
+                mail($destino,"Contacto",$contenido);
+                var_dump("Enviado");
+              }
+            }
 
             ?>
 

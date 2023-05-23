@@ -101,3 +101,17 @@ Stack trace:
 #5 /var/www/html/lvclogistica/index.php(40): ControladorPlantilla->ctrPlantilla()
 #6 {main}
   thrown in /var/www/html/lvclogistica/modelos/productos.modelo.php on line 13
+[19-May-2023 17:14:04 America/New_York] PHP Warning:  Undefined array key "alerta_envio" in /var/www/html/lvclogistica/vistas/modulos/salidas.php on line 140
+[23-May-2023 10:19:21 America/New_York] PHP Warning:  Undefined array key "nombreUsuario" in /var/www/html/lvclogistica/vistas/modulos/cabezote.php on line 46
+[23-May-2023 11:58:34 America/New_York] PHP Warning:  Undefined array key "ingreso" in /var/www/html/lvclogistica/vistas/modulos/productoss.php on line 13
+[23-May-2023 11:58:34 America/New_York] PHP Warning:  Undefined array key "ingreso" in /var/www/html/lvclogistica/vistas/modulos/productoss.php on line 65
+[23-May-2023 11:58:34 America/New_York] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 in /var/www/html/lvclogistica/modelos/productos-entradas.modelo.php:9
+Stack trace:
+#0 /var/www/html/lvclogistica/modelos/productos-entradas.modelo.php(9): PDOStatement->execute()
+#1 /var/www/html/lvclogistica/controladores/productos-entradas.controlador.php(11): ModeloProductosEntradas::mdlMostrarProductosEntradas()
+#2 /var/www/html/lvclogistica/vistas/modulos/productoss.php(67): ControladorProductosEntradas::ctrMostrarProductosEntradas()
+#3 /var/www/html/lvclogistica/vistas/plantilla.php(153): include('...')
+#4 /var/www/html/lvclogistica/controladores/plantilla.controlador.php(6): include('...')
+#5 /var/www/html/lvclogistica/index.php(40): ControladorPlantilla->ctrPlantilla()
+#6 {main}
+  thrown in /var/www/html/lvclogistica/modelos/productos-entradas.modelo.php on line 9

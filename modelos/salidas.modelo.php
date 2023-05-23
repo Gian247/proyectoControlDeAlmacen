@@ -136,7 +136,16 @@ class ModeloSalidas{
 			return $stmt -> fetchAll();
 		}
 	}
-
+	/*=============================================
+				SUMAR EL TOTAL DE SALIDAS
+	=============================================*/
+	static public function mdlSumaTotalSalidas($tabla){
+		$stmt = Conexion::conectar()->prepare("SELECT SUM(total_valor_salida) as total FROM $tabla");
+		$stmt->execute();
+		return $stmt->fetch();
+		$stmt->close();
+		$stmt = null;
+	}
 
 	
 }

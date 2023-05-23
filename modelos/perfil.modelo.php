@@ -58,5 +58,17 @@ class ModeloPerfil{
     /*---------------------------------------
             ELIMINAR PERFILES
     ---------------------------------------- */
-
+    
+    static public function mdlBorrarPefil($tabla,$datos){
+        $stmt=Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id_perfil=:id");
+        $stmt -> bindParam(":id",$datos,PDO::PARAM_INT);
+        if($stmt->execute()){
+            return "ok";
+        }else{
+            return "error";
+        }
+        $stmt->close();
+        $stmt=null;
+    }
 }
+

@@ -410,5 +410,18 @@ class ControladorSalidas{
 		}
 
 	}
+	/*=============================================
+	SUMA TOTAL SALIDAS
+	=============================================*/
+
+	static public function ctrSumaTotalSalidas(){
+
+		$tabla = "salidas";
+
+		$respuesta = ModeloSalidas::mdlSumaTotalSalidas($tabla);
+
+		return $respuesta;
+
+	}	
 
 }

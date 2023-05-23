@@ -119,6 +119,35 @@ class ControladorPerfil{
             ELIMINAR PERFILES
     ---------------------------------------- */
     static public function ctrEliminarPerfil(){
-        
+        if(isset($_GET["idPerfil"])){
+            
+            $tabla="perfil";
+            $datos=$_GET["idPerfil"];
+
+            $respuesta=ModeloPerfil::mdlBorrarPefil($tabla,$datos);
+            if($respuesta=="ok"){
+                echo'<script>
+
+                swal({
+                    type: "success",
+                    title: "La categoria ha sido borrada correctamente",
+                    showConfirmButton: true,
+                    confirmButtonText: "Cerrar"
+                    }).then(function(result){
+                                if (result.value) {
+
+                                window.location = "perfil";
+
+                                }
+                            })
+
+                </script>';
+            }
+
+
+            
+            
+
+        }
     }
 }

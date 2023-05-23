@@ -43,7 +43,7 @@
                             <img src="vistas/img/usuarios/default/anonymous.png" alt="" class="user-image">
                         
                         
-                        <span class="hidden-xs">Gianfranco Flores Pacheco</span>
+                        <span class="hidden-xs"><?php echo $_SESSION["nombre"]; ?></span>
                     </a>
 
                     <!--DROPDOWN-TOGGLE -->

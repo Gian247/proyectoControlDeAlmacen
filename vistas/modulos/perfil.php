@@ -1,10 +1,10 @@
 <?php
-//   if ($_SESSION["perfil"]=="Vendedor") {
-//   echo '<script>
-//       window.location="inicio";
-//     </script>';
-//   return;
-//   }
+   if ($_SESSION["perfil"]!="1") {
+   echo '<script>
+       window.location="inicio";
+     </script>';
+   return;
+   }
 ?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -65,10 +65,13 @@
                   <td>
 
                     <div class="btn-group">
-                      <button class="btn btn-warning btnEditarPerfil" idPerfil="<?php echo $value["id_perfil"];?>" data-toggle="modal" data-target="#modalEditarPerfil"><i class="fa fa-pencil"></i></button>
-                      <?//php if($_SESSION["perfil"]=="Administrador"):?>
+                      
+                      <?php if($_SESSION["perfil"]="1"):?>
+                        <button class="btn btn-warning btnEditarPerfil" idPerfil="<?php echo $value["id_perfil"];?>" data-toggle="modal" data-target="#modalEditarPerfil"><i class="fa fa-pencil"></i></button>
                         <button class="btn btn-danger btnEliminarPerfil" idPerfil="<?php echo $value["id_perfil"];?>"><i class="fa fa-times"></i></button>
-                      <?//php endif; ?>
+                      <?php else:?>
+                        <button class="btn btn-default">No Autorizado</button>
+                      <?php endif; ?>
                     </div>
                   </td>
 
@@ -215,7 +218,7 @@
 </div>
 
 <?php 
-    //    $borrarCategoria = new ControladorCategorias();
-    //    $borrarCategoria->ctrBorrarCategoria();
+        $borrarCategoria = new ControladorPerfil();
+        $borrarCategoria->ctrEliminarPerfil();
     ?>
 

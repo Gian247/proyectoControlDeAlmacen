@@ -89,5 +89,19 @@ class ControladorEntradasAlmacen{
         
     }
 
+    /*=============================================
+	SUMA TOTAL SALIDAS
+	=============================================*/
+
+	static public function ctrSumaTotalIngresos(){
+
+		$tabla = "ingreso_productos";
+
+		$respuesta = ModeloEntradasAlmacen::mdlSumaTotalIngresos($tabla);
+
+		return $respuesta;
+
+	}	
+
 
 }
