@@ -78,8 +78,13 @@
                             <td><img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail" width="40px">
                             </td>
                             <?php endif;?>
-
-                            <td><?php echo $value["id_perfil"];?></td>
+                            <?php 
+                                $itemPerfil="id_perfil";
+                                $itemValor=$value["id_perfil"];
+                                $respuestaPerfil=ControladorPerfil::ctrMostrarPerfil($itemPerfil,$itemValor);
+                  
+                            ?>
+                            <td><?php echo $respuestaPerfil["perfil"];?></td>
                             <?php if($value["estado"]!=0):?>
                             <td><button class="btn btn-success btn-xs btnActivar"
                                     idUsuario=<?php echo $value["id_usuario"]; ?> estadoUsuario=0>Activado</button>
@@ -174,7 +179,7 @@
 
                         <div class="form-group">
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <span class="input-group-addon"><i class="fa fa-at"></i></span>
                                 <input type="text" class="form-control input-lg" name="nuevoCorreo"
                                     placeholder="CORREO ELECTRONICO" required>
                             </div>
@@ -299,7 +304,7 @@
 
                         <div class="form-group">
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <span class="input-group-addon"><i class="fa fa-at"></i></span>
                                 <input type="text" class="form-control input-lg" id="editarCorreo" name="editarCorreo"
                                     placeholder="" required>
                             </div>
@@ -318,7 +323,7 @@
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                 <input type="password" class="form-control input-lg" name="editarPassword"
                                     placeholder="Escriba la nueva contraseña">
-                                <input type="text" id="passwordActual" name="passwordActual">
+                                <input type="hidden" id="passwordActual" name="passwordActual">
                             </div>
                         </div>
 

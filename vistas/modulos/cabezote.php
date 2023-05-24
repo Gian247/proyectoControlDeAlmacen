@@ -40,8 +40,11 @@
                     <a href="" class="dropdown-toggle" data-toggle="dropdown">
 
                         
+                        <?php if($_SESSION["foto"]!= ""): ?>
+                            <img src="<?php echo $_SESSION["foto"]; ?>" class="user-image" alt="">
+                        <?php else: ?>
                             <img src="vistas/img/usuarios/default/anonymous.png" alt="" class="user-image">
-                        
+                        <?php endif;?>
                         
                         <span class="hidden-xs"><?php echo $_SESSION["nombre"]; ?></span>
                     </a>

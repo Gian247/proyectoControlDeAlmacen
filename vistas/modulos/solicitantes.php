@@ -70,7 +70,13 @@
                   <td><?php echo $value["nombres"]; ?></td>
                   <td><?php echo $value["apellidos"]; ?></td>
                   <td><?php echo $value["documento"]; ?></td>
-                  <td><?php echo $value["id_perfil"]; ?></td>
+                  <?php 
+                    $itemPerfil="id_perfil";
+                    $itemValor=$value["id_perfil"];
+                    $respuestaPerfil=ControladorPerfil::ctrMostrarPerfil($itemPerfil,$itemValor);
+                  
+                  ?>
+                  <td><?php echo $respuestaPerfil["perfil"]; ?></td>
                   <td><?php echo $value["solicitudes"]; ?></td>
                   <td><?php echo $value["ultima_solicitud"]; ?></td>
                   <td><?php echo $value["correo"]; ?></td>
@@ -136,35 +142,35 @@
               <!--Entrada de nombre-->
               <div class="form-group">
                 <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
                   <input type="text" class="form-control input-lg" name="nuevoNombreSolicitante" placeholder="Ingresar Nombre" required>
                 </div>
               </div>
               <!--Entrada de apellido-->
               <div class="form-group">
                 <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
                   <input type="text" class="form-control input-lg" name="nuevoApellidoSolicitante" placeholder="Ingresar Apellido" required>
                 </div>
               </div>
               <!--Entrada de dolcumento-->
               <div class="form-group">
                 <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                  <span class="input-group-addon"><i class="fa fa-newspaper-o"></i></span>
                   <input type="text" class="form-control input-lg" name="nuevaDocumentoSolicitante" placeholder="Ingrese # Documento" required>
                 </div>
               </div>
               <!--Entrada de correo-->
               <div class="form-group">
                 <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                  <span class="input-group-addon"><i class="fa fa-at"></i></span>
                   <input type="text" class="form-control input-lg" name="nuevoCorreoSolicitante" placeholder="Ingresar Correo del Solicitante" required>
                 </div>
               </div>
               <!--Entrada de perfil-->
               <div class="form-group">
                 <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                  <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
                   <select class="form-control input-lg" name="nuevoPerfilSolicitante" id="">
                     <option value="">Seleccione el cargo</option>
                     <?php
@@ -240,28 +246,28 @@
               <!--Entrada de nombre-->
             <div class="form-group">
                 <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
                   <input type="text" class="form-control input-lg" name="editarNombreSolicitante" id="editarNombreSolicitante" placeholder="Ingresar Nombre" required>
                 </div>
               </div>
               <!--Entrada de apellido-->
               <div class="form-group">
                 <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
                   <input type="text" class="form-control input-lg" name="editarApellidoSolicitante" id="editarApellidoSolicitante" placeholder="Ingresar Apellido" required>
                 </div>
               </div>
               <!--Entrada de dolcumento-->
               <div class="form-group">
                 <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                  <span class="input-group-addon"><i class="fa fa-newspaper-o"></i></span>
                   <input type="text" class="form-control input-lg" name="editarDocumentoSolicitante" id="editarDocumentoSolicitante" placeholder="Ingrese # Documento" required>
                 </div>
               </div>
               <!--Entrada de correo-->
               <div class="form-group">
                 <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                  <span class="input-group-addon"><i class="fa fa-at"></i></span>
                   <input type="text" class="form-control input-lg" name="editarCorreoSolicitante" id="editarCorreoSolicitante" placeholder="Ingresar Correo del Solicitante" required>
                   <input type="hidden" name="idSolicitante" id="idSolicitante">
                 </div>
@@ -269,7 +275,7 @@
                <!--Entrada de perfil-->
                <div class="form-group">
                 <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                  <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
                   <select class="form-control input-lg" name="editarPerfilSolicitante" >
                     <option value="" id="editarPerfilSolicitante">Seleccione el cargo</option>
                     <?php

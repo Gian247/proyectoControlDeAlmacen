@@ -127,7 +127,7 @@
               <!--Entrada de nombre-->
               <div class="form-group">
                 <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                  <span class="input-group-addon"><i class="fa fa-building-o"></i></span>
                   <input type="text" class="form-control input-lg" name="nuevaCategoria" placeholder="Ingresar Categoria" required>
                 </div>
               </div>
@@ -189,7 +189,7 @@
           <!--Entrada el nombre de la categoria-->
           <div class="form-group">
             <div class="input-group">
-              <span class="input-group-addon"><i class="fa fa-th"></i></span>
+              <span class="input-group-addon"><i class="fa fa-building-o"></i></span>
               <input type="text" class="form-control input-lg" name="editarCategoria"  id="editarCategoria" required>
               <input type="hidden" name="idCategoria" id="idCategoria" >
             </div>

@@ -48,7 +48,9 @@ class ModeloProductos{
 		$stmt = null;
 
 	}
-
+	/*=============================================
+				SUMAR SALIDAS
+	=============================================*/
 
 	static public function mdlMostrarSumaSalidas($tabla)
 	{
@@ -57,6 +59,29 @@ class ModeloProductos{
 		return $stmt->fetch();
 		$stmt->close();
 		$stmt = null;
-	}
 
+	}
+	/*=============================================
+				SUMAR SALIDAS
+	=============================================*/
+
+	static public function mdlActualizarAlertaEnvio($tabla,$datos)
+	{
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET envio_alerta=:envioAlerta WHERE id_producto=:id");
+		$stmt -> bindParam(":envioAlerta", $datos["nuevoValorEstadoEnvio"], PDO::PARAM_STR);
+		$stmt -> bindParam(":id", $datos["idProducto"], PDO::PARAM_STR);
+		if($stmt -> execute()){
+
+			return "ok";
+		
+		}else{
+
+			return "error";	
+
+		}
+
+		$stmt -> close();
+
+		$stmt = null;
+	}
 }

@@ -53,7 +53,7 @@ class ControladorProveedor{
 
 				swal({
 					  type: "error",
-					  title: "!La categoria no puede ir vacia o llevar caracteres especiales¡",
+					  title: "!El proveedor no puede ir vacia o llevar caracteres especiales¡",
 					  showConfirmButton: true,
 					  confirmButtonText: "Cerrar",
                       closeOnConfirm: false
@@ -99,7 +99,7 @@ class ControladorProveedor{
 
                     swal({
                         type: "success",
-                        title: "La categoria ha sido modificada correctamente",
+                        title: "Los datos del proveedor han sido modificados correctamente",
                         showConfirmButton: true,
                         confirmButtonText: "Cerrar"
                         }).then(function(result){
@@ -117,7 +117,7 @@ class ControladorProveedor{
 
 				swal({
 					  type: "error",
-					  title: "!La categoria no puede ir vacia o llevar caracteres especiales¡",
+					  title: "!El Proveedor no puede ir vacia o llevar caracteres especiales¡",
 					  showConfirmButton: true,
 					  confirmButtonText: "Cerrar",
                       closeOnConfirm: false
@@ -151,7 +151,7 @@ class ControladorProveedor{
 
                     swal({
                         type: "success",
-                        title: "La categoria ha sido borrada correctamente",
+                        title: "El proveedor ha sido borrada correctamente",
                         showConfirmButton: true,
                         confirmButtonText: "Cerrar"
                         }).then(function(result){

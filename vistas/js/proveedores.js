@@ -35,7 +35,7 @@ $(".btnEditarProveedor").click(function(){
     $(".tablas").on("click", ".btnEliminarProveedor",function(){
     let idProveedor = $(this).attr("idProveedor");
     swal({
-        title:"¿ Está seguro que desea borrar el registro del solicitante ?",
+        title:"¿ Está seguro que desea borrar el registro de Proveedor ?",
         text:"! Si no esta seguro puede cancelar la acción ¡",
         type: 'warning',
         showCancelButton: true,

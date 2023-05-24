@@ -139,7 +139,7 @@
                         <!--Entrada de la empresa-->
                         <div class="form-group">
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <span class="input-group-addon"><i class="fa fa-bank"></i></span>
                                 <input type="text" class="form-control input-lg" name="nuevoProveedor" placeholder="INGRESE EL NOMBRE DE LA EMPRESA" required>
                             </div>
                         </div>
@@ -147,7 +147,7 @@
                         <!--Entrada de rubro de la empresa-->
                         <div class="form-group">
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <span class="input-group-addon"><i class="fa fa-bank"></i></span>
                                 <input type="text" class="form-control input-lg" name="nuevoRubro" placeholder="INGRESE SECTOR DE COMERCIO DE LA EMPRESA" required>
                             </div>
                         </div>
@@ -165,14 +165,14 @@
                         <!--Entrada de telefono-->
                         <div class="form-group">
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                <span class="input-group-addon"><i class="fa fa-tty"></i></span>
                                 <input type="text" class="form-control input-lg" name="nuevoTelefono" id="nuevoUsuario" placeholder="# CONTACTO( 0156466 / 984578457)" required>
                             </div>
                         </div>
                         <!--Entrada de ruc-->
                         <div class="form-group">
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <span class="input-group-addon"><i class="fa fa-check-square"></i></span>
                                 <input type="text" class="form-control input-lg" name="nuevoRuc" placeholder="INGRESE EL RUC DE LA EMPRESA" required>
                             </div>
                         </div>
@@ -180,7 +180,7 @@
                         <!--Entrada de correo-->
                         <div class="form-group">
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <span class="input-group-addon"><i class="fa fa-at"></i></span>
                                 <input type="text" class="form-control input-lg" name="nuevoCorreoEmpresa" placeholder="INGRESE CORREO DE CONTACTO" required>
                             </div>
                         </div>
@@ -246,7 +246,7 @@
                         <!--Entrada de la empresa-->
                         <div class="form-group">
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <span class="input-group-addon"><i class="fa fa-bank"></i></span>
                                 <input type="text" class="form-control input-lg" name="editarProveedor" id="editarProveedor" placeholder="INGRESE EL NOMBRE DE LA EMPRESA" required>
                                 <input type="hidden" name="idProveedor" id="idProveedor">
                             </div>
@@ -255,7 +255,7 @@
                         <!--Entrada de rubro de la empresa-->
                         <div class="form-group">
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <span class="input-group-addon"><i class="fa fa-bank"></i></span>
                                 <input type="text" class="form-control input-lg" name="editarRubro" id="editarRubro" placeholder="INGRESE SECTOR DE COMERCIO DE LA EMPRESA" required>
                             </div>
                         </div>
@@ -273,14 +273,14 @@
                         <!--Entrada de telefono-->
                         <div class="form-group">
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                <span class="input-group-addon"><i class="fa fa-tty"></i></span>
                                 <input type="text" class="form-control input-lg" name="editarTelefono" id="editarTelefono" placeholder="# CONTACTO( 0156466 / 984578457)" required>
                             </div>
                         </div>
                         <!--Entrada de ruc-->
                         <div class="form-group">
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <span class="input-group-addon"><i class="fa fa-check-square"></i></span>
                                 <input type="text" class="form-control input-lg" name="editarRuc" id="editarRuc" placeholder="INGRESE EL RUC DE LA EMPRESA" required>
                             </div>
                         </div>
@@ -288,7 +288,7 @@
                         <!--Entrada de correo-->
                         <div class="form-group">
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <span class="input-group-addon"><i class="fa fa-at"></i></span>
                                 <input type="text" class="form-control input-lg" name="editarCorreoEmpresa" id="editarCorreoEmpresa" placeholder="INGRESE CORREO DE CONTACTO" required>
                             </div>
                         </div>

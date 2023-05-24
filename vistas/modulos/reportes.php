@@ -11,13 +11,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-       Reportes de ventas
+       Reportes General de Salidas
        
       </h1>
       <ol class="breadcrumb">
         <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
         
-        <li class="active">Reportes de ventas</li>
+        <li class="active">Reportes General</li>
       </ol>
     </section>
 

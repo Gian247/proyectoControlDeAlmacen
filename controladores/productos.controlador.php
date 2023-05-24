@@ -88,6 +88,35 @@ class ControladorProductos{
 
 		}
     }
+
+	/*=============================================
+		ACTUALIZAR REPORTE DE ALERTA DE PRODUCTO
+	=============================================*/
+	static function ctrEditarAlertaStockAgotado($idProducto ,$valorActual){
+		$tabla="producto";
+		$nuevoValor=$valorActual+1;
+		$datos=array("idProducto"=>$idProducto,
+					"nuevoValorEstadoEnvio"=>$nuevoValor);
+		$respuesta=ModeloProductos::mdlActualizarAlertaEnvio($tabla,$datos);
+		if($respuesta=="ok"){
+			echo'<script>
+
+						swal({
+							  type: "info",
+							  title: "Alerta: Se ha enviado un correo con el detalle del producto agotado",
+							  showConfirmButton: true,
+							  confirmButtonText: "Cerrar"
+							  }).then(function(result){
+										if (result.value) {
+
+										window.location = "salidas";
+
+										}
+									})
+
+						</script>';
+		}
+	}
     
 
 }

@@ -63,45 +63,30 @@ $pdf->AddPage();
 //Trabajar siempre en tablas la construccion de documentos pdf
 $bloque1 = <<<EOF
 	
-	<table>
-		
+		<table>
 		<tr>
-			
-			<td style="width:150px"><img src="images/logo-negro-bloque.png"></td>
-
-			<td style="background-color:white; width:140px">
-				
-				<div style="font-size:8.5px; text-align:right; line-height:15px;">
-					
-					<br>
-					NIT: 71.759.963-9
-
-					<br>
-					Dirección: Calle 44B 92-11
-
-				</div>
-
-			</td>
-
-			<td style="background-color:white; width:140px">
-
-				<div style="font-size:8.5px; text-align:right; line-height:15px;">
-					
-					<br>
-					Teléfono: 300 786 52 49
-					
-					<br>
-					ventas@inventorysystem.com
-
-				</div>
-				
-			</td>
-
-			<td style="background-color:white; width:110px; text-align:center; color:red"><br><br>FACTURA N.<br>$respuestaSalida[codigo_salida]</td>
-
+		<td style=" background-color:white; width:540px"></td>
 		</tr>
-
-	</table>
+		<tr>
+			<td style="width:40px"><img src="images/logo-escudo-lima-villa-college.png"></td>
+			<td style="width:60px"></td>
+			<td style="background-color:white; width:340px">
+				<div style="font-size:16px; text-align:center; line-height:15px;">
+					<br>
+					LIMA VILLA COLLEGE
+					<br>
+					Sistema de Inventario
+				</div>
+			</td>
+			<td style="background-color:white; width:100px; text-align:center; color:blue"><br><br>CÓDIGO SALIDA<br>$respuestaSalida[codigo_salida]</td>
+		</tr>
+		<tr>
+		<td style=" background-color:white; width:540px"></td>
+		</tr>
+		<tr>
+		<td style=" background-color:white; width:540px"></td>
+		</tr>
+		</table>
 
 EOF;
 //Se cierra el bloque
@@ -207,11 +192,11 @@ $bloque4 = <<<EOF
 				$item[cantidad]
 			</td>
 
-			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">$ 
+			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">S/. 
 				$valorUnitario
 			</td>
 
-			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">$ 
+			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">S/. 
 				$precioTotal
 			</td>
 
@@ -251,7 +236,7 @@ $bloque5 = <<<EOF
 			</td>
 			
 			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">
-				$ $total
+				S/. $total
 			</td>
 
 		</tr>

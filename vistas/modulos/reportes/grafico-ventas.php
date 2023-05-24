@@ -92,7 +92,7 @@ var line = new Morris.Line({
     ],
     xkey             : 'y',
     ykeys            : ['ventas'],
-    labels           : ['ventas'],
+    labels           : ['Total Salidas'],
     lineColors       : ['#efefef'],
     lineWidth        : 2,
     hideHover        : 'auto',
@@ -103,7 +103,7 @@ var line = new Morris.Line({
     gridLineColor    : '#efefef',
     gridTextFamily   : 'Open Sans',
     preUnits         : 'S/. ',
-    gridTextSize     : 10
+    gridTextSize     : 15
   });
 	
 

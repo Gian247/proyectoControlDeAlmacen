@@ -20,7 +20,7 @@ if ($_SESSION["perfil"]!="1" && $_SESSION["perfil"]!="2" && $_SESSION["perfil"]!
 
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
 
-      <li class="active">Administrar ventas</li>
+      <li class="active">Administrar Salidas</li>
 
     </ol>
 
@@ -36,7 +36,7 @@ if ($_SESSION["perfil"]!="1" && $_SESSION["perfil"]!="2" && $_SESSION["perfil"]!
 
           <button class="btn btn-primary">
 
-            Agregar venta
+            Agregar Salida
 
           </button>
 
@@ -112,7 +112,7 @@ if ($_SESSION["perfil"]!="1" && $_SESSION["perfil"]!="2" && $_SESSION["perfil"]!
               echo '<td>' . $respuestaUsuario["nombres"] . '</td>
 
 
-                  <td>$ ' . number_format($value["total_valor_salida"], 2) . '</td>
+                  <td>S/. ' . number_format($value["total_valor_salida"], 2) . '</td>
 
                   <td>' . $value["fecha_salida"] . '</td>
 
@@ -141,12 +141,39 @@ if ($_SESSION["perfil"]!="1" && $_SESSION["perfil"]!="2" && $_SESSION["perfil"]!
             $envioDeNotificacionCorreo=ControladorProductos::ctrMostrarProductos("producto",null,"id_producto");
             foreach ($envioDeNotificacionCorreo as $key => $value) {
               if($value["stockDisponible"]==0 && $value["envio_alerta"]==0){
-                $destino= "gianfrancoflores.pacheco@gmail.com";
-                $nombre="Gianfranco Flores";
-                $mensaje="Hola estimado usuario te informamos que el producto agoto su stock disponible";
-                $contenido="Nombre: ". $nombre ."\nMensaje: " . $mensaje;
-                mail($destino,"Contacto",$contenido);
-                var_dump("Enviado");
+
+
+                $para= "caguilar@limavillacollege.edu.pe".', ';
+                $para.='gflores@limavillacollege.edu.pe';
+                $titulo='Alerta de Productos Sistema LVC';
+                $mensaje= '
+                <html>
+                  <head>
+                    <title>Recordatorio de cumpleaños para Agosto</title>
+                  </head>
+                  <body>
+                    <h3>Estimado usuario te informamos que el producto ya acabo su stock disponible</h3>
+                    <br><br>
+                    <table style="text-align:center; margin-left: auto; margin-right: auto; border-collapse: collapse;">
+                      <tr>
+                        <th>Código Único </th><th>Lote Ingreso </th><th>Descripción </th><th>Stock Disponible </th>
+                      </tr>
+                      <tr>
+                        <td >'.$value["id_producto"].'</td><td>'.$value["codigo_ingreso"].'</td><td>'.$value["descripcion"].'</td><td>'.$value["stockDisponible"].'</td>
+                      </tr>
+                      
+                    </table>
+                  </body>
+                  </html>
+                ';
+
+                $cabeceras = 'MIME-Version: 1.0'."\r\n";
+                $cabeceras.='Content-type: text/html; charset=iso-8859-1'."\r\n";
+                
+                mail($para,$titulo,$mensaje,$cabeceras);
+
+                $ActualizarAlertaProducto=ControladorProductos::ctrEditarAlertaStockAgotado($value["id_producto"], $value["envio_alerta"]);
+
               }
             }
 

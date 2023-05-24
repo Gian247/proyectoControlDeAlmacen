@@ -61,10 +61,10 @@ $noRepetirNombres = array_unique($arraySolicitantes);
         
         
       ],
-      barColors: ['#AF0529'],
+      barColors: ['#057faf'],
       xkey: 'y',
       ykeys: ['a'],
-      labels: ['ventas'],
+      labels: ['Valor Requerido'],
       preUnits: 'S/.',
       hideHover: 'auto'
     });

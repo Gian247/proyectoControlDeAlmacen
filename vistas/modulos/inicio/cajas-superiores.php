@@ -26,7 +26,7 @@ $totalSolicitantes=count($solicitantes);
     
     <div class="icon">
       
-      <i class="ion ion-social-usd"></i>
+      <i class="fa fa-arrow-up"></i>
     
     </div>
     
@@ -55,7 +55,7 @@ $totalSolicitantes=count($solicitantes);
     
     <div class="icon">
     
-      <i class="ion ion-person-add"></i>
+      <i class="fa fa-arrow-down"></i>
     
     </div>
     
@@ -85,7 +85,7 @@ $totalSolicitantes=count($solicitantes);
     
     <div class="icon">
     
-      <i class="ion ion-clipboard"></i>
+      <i class="fa fa-user"></i>
     
     </div>
     

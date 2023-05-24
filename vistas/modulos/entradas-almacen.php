@@ -106,7 +106,7 @@
                   <td>
 
                     <div class="btn-group">
-                      <button title="Agregar Producto" class="btn btn-success btnVerSolicitados" idEntrada="<?php echo $value["id_ingreso"];?>" fEntrada="<?php echo $value["fecha_ingreso"]; ?>"><i class="fa fa-eye"></i></button>
+                      <button title="Agregar Producto" class="btn btn-success btnVerSolicitados" idEntrada="<?php echo $value["id_ingreso"];?>" fEntrada="<?php echo $value["fecha_ingreso"]; ?>"><i class="fa fa-plus-square"></i></button>
                       <button class="btn btn-info btnImprimirProductosLoteEntrada" codigoEntradaAlmacen="<?php echo $value["id_ingreso"];?>" >
                         <i class="fa fa-print">
                       </i></button>
@@ -169,7 +169,7 @@
               <!--Entrada de Proveedor-->
               <div class="form-group">
                 <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                  <span class="input-group-addon"><i class="fa fa-truck"></i></span>
                   <select class="form-control input-lg" name="ingresoEntradaProveedor" id="">
                     <option value="">Seleccione Proveedor</option>
                     <?php

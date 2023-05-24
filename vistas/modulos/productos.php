@@ -31,16 +31,17 @@
       <div class="box">
 
         <div class="box-header with-border">
-
-          <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarEntrada">Agregar Productos</button>
-          <div class="box-tools pull-right">
-          
-
-            <a href="vistas/modulos/descargarExcelProductos.php?reporteProductos=reporteOk">
+        <a href="vistas/modulos/descargarExcelProductos.php?reporteProductos=reporteOk">
               <button class="btn btn-success" style="margin-top:5px">Exportar Excel</button>
             </a>
 
-        </div>
+          <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarEntrada">Agregar Productos</button> -->
+          <div class="box-tools pull-right">
+          
+
+            
+
+          </div>
         </div>
         
 
@@ -53,9 +54,10 @@
               <tr>
                 <th>#</th>
                 <th>Lote Ingreso</th>
-                <th>Codigo</th>
+                <th>Código Único Producto</th>
                 <th>Producto</th>
-                <th>Categoria</th>
+                <th>Utilidad Producto</th>
+                <th>Stock Entrante Almacén</th>
                 <th>Stock Disponible</th>
                 <th>P.unitario</th>
                 <th>P.Lote</th>
@@ -83,9 +85,10 @@
                 <tr>
                   <td><?php echo ($key+1); ?></td>
                   <td><?php echo $value["codigo_ingreso"]; ?></td>
-                  <td><?php echo $value["codigo_producto"]; ?></td>
+                  <td><?php echo $value["id_producto"]; ?></td>
                   <td><?php echo $value["descripcion"]; ?></td>
                   <td><?php echo $categoria["categoria"]; ?></td>
+                  <td><?php echo $value["stock"]; ?></td>
                   <td><?php echo $value["stockDisponible"]; ?></td>
                   <td><?php echo "S/. ".$value["costo_unitario"]; ?></td>
                   <td><?php echo "S/. ".$value["costo_lote"]; ?></td>

@@ -115,3 +115,31 @@ Stack trace:
 #5 /var/www/html/lvclogistica/index.php(40): ControladorPlantilla->ctrPlantilla()
 #6 {main}
   thrown in /var/www/html/lvclogistica/modelos/productos-entradas.modelo.php on line 9
+[24-May-2023 14:03:35 America/New_York] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'lvc_pos.productos' doesn't exist in /var/www/html/lvclogistica/modelos/productos.modelo.php:73
+Stack trace:
+#0 /var/www/html/lvclogistica/modelos/productos.modelo.php(73): PDOStatement->execute()
+#1 /var/www/html/lvclogistica/controladores/productos.controlador.php(100): ModeloProductos::mdlActualizarAlertaEnvio()
+#2 /var/www/html/lvclogistica/vistas/modulos/salidas.php(175): ControladorProductos::ctrEditarAlertaStockAgotado()
+#3 /var/www/html/lvclogistica/vistas/plantilla.php(153): include('...')
+#4 /var/www/html/lvclogistica/controladores/plantilla.controlador.php(6): include('...')
+#5 /var/www/html/lvclogistica/index.php(40): ControladorPlantilla->ctrPlantilla()
+#6 {main}
+  thrown in /var/www/html/lvclogistica/modelos/productos.modelo.php on line 73
+[24-May-2023 14:41:01 America/New_York] PHP Warning:  Undefined array key "stock" in /var/www/html/lvclogistica/vistas/modulos/productos.php on line 91
+[24-May-2023 14:41:01 America/New_York] PHP Warning:  Undefined array key "stock" in /var/www/html/lvclogistica/vistas/modulos/productos.php on line 91
+[24-May-2023 14:41:01 America/New_York] PHP Warning:  Undefined array key "stock" in /var/www/html/lvclogistica/vistas/modulos/productos.php on line 91
+[24-May-2023 14:41:01 America/New_York] PHP Warning:  Undefined array key "stock" in /var/www/html/lvclogistica/vistas/modulos/productos.php on line 91
+[24-May-2023 14:41:01 America/New_York] PHP Warning:  Undefined array key "stock" in /var/www/html/lvclogistica/vistas/modulos/productos.php on line 91
+[24-May-2023 14:41:01 America/New_York] PHP Warning:  Undefined array key "stock" in /var/www/html/lvclogistica/vistas/modulos/productos.php on line 91
+[24-May-2023 14:41:01 America/New_York] PHP Warning:  Undefined array key "stock" in /var/www/html/lvclogistica/vistas/modulos/productos.php on line 91
+[24-May-2023 14:41:01 America/New_York] PHP Warning:  Undefined array key "stock" in /var/www/html/lvclogistica/vistas/modulos/productos.php on line 91
+[24-May-2023 14:41:01 America/New_York] PHP Warning:  Undefined array key "stock" in /var/www/html/lvclogistica/vistas/modulos/productos.php on line 91
+[24-May-2023 14:41:01 America/New_York] PHP Warning:  Undefined array key "stock" in /var/www/html/lvclogistica/vistas/modulos/productos.php on line 91
+[24-May-2023 14:41:01 America/New_York] PHP Warning:  Undefined array key "stock" in /var/www/html/lvclogistica/vistas/modulos/productos.php on line 91
+[24-May-2023 14:41:01 America/New_York] PHP Warning:  Undefined array key "stock" in /var/www/html/lvclogistica/vistas/modulos/productos.php on line 91
+[24-May-2023 14:41:01 America/New_York] PHP Warning:  Undefined array key "stock" in /var/www/html/lvclogistica/vistas/modulos/productos.php on line 91
+[24-May-2023 14:41:01 America/New_York] PHP Warning:  Undefined array key "stock" in /var/www/html/lvclogistica/vistas/modulos/productos.php on line 91
+[24-May-2023 14:41:01 America/New_York] PHP Warning:  Undefined array key "stock" in /var/www/html/lvclogistica/vistas/modulos/productos.php on line 91
+[24-May-2023 14:41:01 America/New_York] PHP Warning:  Undefined array key "stock" in /var/www/html/lvclogistica/vistas/modulos/productos.php on line 91
+[24-May-2023 14:41:01 America/New_York] PHP Warning:  Undefined array key "stock" in /var/www/html/lvclogistica/vistas/modulos/productos.php on line 91
+[24-May-2023 14:41:01 America/New_York] PHP Warning:  Undefined array key "stock" in /var/www/html/lvclogistica/vistas/modulos/productos.php on line 91

@@ -34,7 +34,7 @@
 
 								<a href="perfil">
 
-									<i class="fa fa-th"></i>
+									<i class="fa fa-suitcase"></i>
 									<span>Perfil</span>
 
 								</a>
@@ -52,7 +52,7 @@
 
 								<a href="categorias">
 	
-									<i class="fa fa-th"></i>
+									<i class="fa fa-building-o"></i>
 									<span>Categorías</span>
 	
 								</a>
@@ -84,7 +84,7 @@
 
 					<a href="#">
 	
-						<i class="fa fa-list-ul"></i>
+						<i class="fa fa-toggle-down"></i>
 	
 						<span>Gestión Ingresos</span>
 	
@@ -102,7 +102,7 @@
 	
 							<a href="proveedores">
 	
-								<i class="fa fa-circle-o"></i>
+								<i class="fa fa-truck"></i>
 								<span>Proveedores</span>
 	
 							</a>
@@ -113,26 +113,28 @@
 	
 							<a href="entradas-almacen">
 	
-								<i class="fa fa-circle-o"></i>
+								<i class="fa fa-arrow-down"></i>
 								<span>Ingreso Productos</span>
 	
 							</a>
 	
 						</li>
-						<li>
-	
-								<a href="productos">
-	
-									<i class="fa fa-product-hunt"></i>
-									<span>Productos</span>
-	
-								</a>
-	
-							</li>';
+						';
 						
 						echo '</ul>
 
             		</li>';
+
+					echo '<li>
+	
+					<a href="productos">
+
+						<i class="fa fa-product-hunt"></i>
+						<span>Productos</span>
+
+					</a>
+
+				</li>';
 
 
 
@@ -143,7 +145,7 @@
 
 					<a href="#">
 	
-						<i class="fa fa-list-ul"></i>
+						<i class="fa fa-toggle-up "></i>
 	
 						<span>Gestión Salidas</span>
 	
@@ -161,7 +163,7 @@
 	
 							<a href="salidas">
 	
-								<i class="fa fa-circle-o"></i>
+								<i class="fa fa-file"></i>
 								<span>Administrar Salidas</span>
 	
 							</a>
@@ -173,7 +175,7 @@
 	
 								<a href="crear-salida">
 	
-									<i class="fa fa-circle-o"></i>
+									<i class="fa fa-arrow-up"></i>
 									<span>Crear Salida</span>
 	
 								</a>
@@ -182,21 +184,20 @@
 
 						}
 
-						
-						echo '<li>
+						echo '                </ul>
+
+            		</li>';
+
+					echo '<li>
 		
 							<a href="reportes">
 		
-								<i class="fa fa-circle-o"></i>
-								<span>Reporte de Salidas</span>
+								<i class="fa fa-pie-chart"></i>
+								<span>Reportes Generales</span>
 		
 							</a>
 		
 						</li>';
-						
-						echo '                </ul>
-
-            		</li>';
 
 				}
 

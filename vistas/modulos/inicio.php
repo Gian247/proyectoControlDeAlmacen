@@ -22,7 +22,7 @@
       <div class="row">
         <?php
         
-         if($_SESSION["perfil"]=="1"){
+        if($_SESSION["perfil"]=="1" || $_SESSION["perfil"]=="2" || $_SESSION["perfil"]=="3"){
 
            include "inicio/cajas-superiores.php";
          }
@@ -33,14 +33,14 @@
         <div class="col-lg-12">
           <?php
 
-          if ($_SESSION["perfil"] == "1") {
+          if($_SESSION["perfil"]=="1" || $_SESSION["perfil"]=="2" || $_SESSION["perfil"]=="3"){
             include "reportes/grafico-ventas.php";
           }
           ?>
         </div> 
         <div class="col-lg-6">
           <?php 
-           if($_SESSION["perfil"]=="1"){
+           if($_SESSION["perfil"]=="1" || $_SESSION["perfil"]=="2" || $_SESSION["perfil"]=="3"){
 
              include "reportes/productos-mas-solicitados.php";
 
@@ -52,7 +52,7 @@
 
         <div class="col-lg-6">
           <?php
-           if($_SESSION["perfil"]=="1"){
+           if($_SESSION["perfil"]=="1" || $_SESSION["perfil"]=="2" || $_SESSION["perfil"]=="3"){
 
              include "inicio/productos-recientes.php";
 
