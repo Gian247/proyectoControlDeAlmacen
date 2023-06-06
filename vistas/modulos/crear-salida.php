@@ -208,7 +208,7 @@ if ($_SESSION["perfil"]!="1" && $_SESSION["perfil"]!="3") {
 
                           <div class="input-group">
 
-                            <span class="input-group-addon"><i class="ion ion-social-usd"></i></span>
+                            <span class="input-group-addon"><i class="ion "></i>S/.</span>
 
                             <input type="text" class="form-control input-lg" id="nuevoTotalVenta" name="nuevoTotalVenta" total="" placeholder="00000" readonly required>
 
