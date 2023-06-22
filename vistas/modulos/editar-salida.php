@@ -102,7 +102,7 @@
 
                   <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-                  <input type="text" class="form-control" id="nuevaSalida" name="editarSalida" value="<?php echo $salida["codigo_salida"] ?>" readonly>
+                  <input type="text" class="form-control" id="nuevaSalida" name="nuevaSalida"  value="<?php echo $salida["codigo_salida"] ?>" readonly>
                   
                 </div>
 
@@ -118,27 +118,14 @@
 
                   <span class="input-group-addon"><i class="fa fa-users"></i></span>
 
-                  <select class="form-control" id="seleccionarSolicitante" name="seleccionarSolicitante" required>
+                  <select class="form-control" id="seleccionarSolicitante" name="seleccionarSolicitante" readonly>
 
-                  <option value="<?php echo $solicitante["id_solicitante"]; ?>"><?php echo $solicitante["nombres"]; ?></option>
-                  <?php
-
-                    $item = null;
-                    $valor = null;
-
-                    $solicitantes = ControladorSolicitantes::ctrMostrarSolicitantes($item, $valor);
-
-                     foreach ($solicitantes as $key => $value) {
-
-                       echo '<option value="'.$value["id_solicitante"].'">'.$value["nombres"].' '.$value["apellidos"].'</option>';
-
-                     }
-
-                  ?>
-
+                  <option areaPerteneciente="<?php echo $solicitante["id_area"]; ?>" value="<?php echo $solicitante["id_solicitante"]; ?>"><?php echo $solicitante["nombres"]; ?></option>
                   </select>
-
-                  <span class="input-group-addon"><button type="button" class="btn btn-default btn-xs tr" data-toggle="modal" data-target="#modalAgregarSolicitante" data-dismiss="modal">Agregar Solicitante</button></span>
+                  <input type="hidden" id="idJaladoSolicitante" name="idJaladoSolicitante" value="<?php echo $solicitante["id_solicitante"]; ?>">
+                  <input type="hidden" id="areaSolicitante" name="areaSolicitante" value="<?php echo $solicitante["id_area"]; ?>">
+                  <input type="hidden" id="fechaSalidaDB" name="fechaSalidaDB" value="<?php echo $salida["fecha_salida"]; ?>">
+                  <span class="input-group-addon"><button type="button" class="btn btn-default btn-xs tr" data-toggle="modal" data-target="#modalAgregarSolicitante" data-dismiss="modal" disabled>Agregar Solicitante</button></span>
 
 
                 </div>
@@ -148,6 +135,9 @@
               <!--=====================================
               ENTRADA PARA AGREGAR PRODUCTO
               ======================================-->
+
+             
+
 
               <div class="form-group row nuevoProducto">
 

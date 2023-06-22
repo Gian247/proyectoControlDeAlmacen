@@ -8,7 +8,7 @@ class ControladorSalidas{
 
     }
     /*=============================================
-	CREAR VENTA
+	CREAR SALIDA
 	=============================================*/
 
 	static public function ctrCrearSalida(){
@@ -16,9 +16,18 @@ class ControladorSalidas{
 		if(isset($_POST["nuevaSalida"])){
 
 			/*=============================================
+			REGISTRAMOS EL PRODUCTO EN LA TABLA DETALLE DE PRODUCTOS
+			=============================================*/
+
+			$ingresarTablaDetalles=	ControladorDetalleSalidaProductos::ctrIngresarDetalleProducto($_POST["listaProductos"],$_POST["areaSolicitante"]);
+
+
+			/*=============================================
 			ACTUALIZAR LAS COMPRAS DEL CLIENTE Y REDUCIR EL STOCK Y AUMENTAR LAS VENTAS DE LOS PRODUCTOS
 			=============================================*/
 			//Decodificamos a un formato que php entiende el archivo json
+
+
 			$listaProductos = json_decode($_POST["listaProductos"], true);
 			//Declaramos un array
 			$totalProductosComprados = array();
@@ -84,8 +93,9 @@ class ControladorSalidas{
 			$tabla = "salidas";
 
 			$datos = array("id_usuario"=>$_POST["idUsuario"],
-						   "id_solicitante"=>$_POST["seleccionarCliente"],
+						   "id_solicitante"=>$_POST["idJaladoSolicitante"],
 						   "codigo"=>$_POST["nuevaSalida"],
+						   "area"=>$_POST["areaSolicitante"],
 						   "productos"=>$_POST["listaProductos"],
 						   "total"=>$_POST["nuevoTotalVenta"]);
 
@@ -99,7 +109,7 @@ class ControladorSalidas{
 
 				swal({
 					  type: "success",
-					  title: "La venta ha sido guardada correctamente",
+					  title: "La Salida ha sido guardada correctamente",
 					  showConfirmButton: true,
 					  confirmButtonText: "Cerrar"
 					  }).then((result) => {
@@ -120,9 +130,10 @@ class ControladorSalidas{
 
     static public function ctrEditarSalida(){
 
-		if(isset($_POST["editarSalida"])){
-
-
+		if(isset($_POST["nuevaSalida"])){
+			
+			$borrarDatosPuestos=ControladorDetalleSalidaProductos::ctrBorrarDetalleProducto($_POST["nuevaSalida"]);
+			
 
 			/*=============================================
 			FORMATEAR TABLA DE PRODUCTOS Y LA DE CLIENTES
@@ -130,7 +141,7 @@ class ControladorSalidas{
 			$tabla = "salidas";
 
 			$item = "codigo_salida";
-			$valor = $_POST["editarSalida"];
+			$valor = $_POST["nuevaSalida"];
 			//Traer la salida que se va a editar
 			$traerSalida = ModeloSalidas::mdlMostrarSalidas($tabla, $item, $valor);
 
@@ -251,6 +262,8 @@ class ControladorSalidas{
 				$hora = date('H:i:s');
 				$valor1b_2 = $fecha.' '.$hora;
 
+				
+
 				$fechaSolicitante_2 = ModeloSolicitante::mdlActualizarSolicitante($tablaSolicitantes_2, $item1b_2, $valor1b_2, $valor_2);
 
 			}
@@ -264,11 +277,14 @@ class ControladorSalidas{
 
 			$datos = array("id_usuario"=>$_POST["idUsuario"],
 						   "id_solicitante"=>$_POST["seleccionarSolicitante"],
-						   "codigo"=>$_POST["editarSalida"],
+						   "codigo"=>$_POST["nuevaSalida"],
 						   "productos"=>$_POST["listaProductos"],
 						   "total"=>$_POST["nuevoTotalVenta"]);
 
 			$respuesta = ModeloSalidas::mdlEditarSalida($tabla, $datos);
+			$dataActualSalida=array("area"=>$_POST["areaSolicitante"],
+							"fecha"=>$_POST["fechaSalidaDB"]);
+			$actualizarRegistro=ControladorDetalleSalidaProductos::ctrIngresarDetalleProducto($_POST["listaProductos"],$dataActualSalida);
 
 			if($respuesta == "ok"){
 
@@ -278,7 +294,7 @@ class ControladorSalidas{
 
 				swal({
 					  type: "success",
-					  title: "La venta ha sido guardada correctamente",
+					  title: "La Salida ha sido guardada correctamente",
 					  showConfirmButton: true,
 					  confirmButtonText: "Cerrar"
 					  }).then((result) => {
@@ -423,5 +439,6 @@ class ControladorSalidas{
 		return $respuesta;
 
 	}	
+
 
 }

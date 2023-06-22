@@ -26,11 +26,12 @@ class ModeloSalidas{
 
 	static public function mdlIngresarSalida($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(codigo_salida, id_solicitante, id_usuario, productos, total_valor_salida) VALUES (:codigo, :id_solicitante, :id_usuario, :productos, :total)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(codigo_salida, id_solicitante, id_usuario,id_area, productos, total_valor_salida) VALUES (:codigo, :id_solicitante, :id_usuario,:area, :productos, :total)");
 
 		$stmt->bindParam(":codigo", $datos["codigo"], PDO::PARAM_INT);
 		$stmt->bindParam(":id_solicitante", $datos["id_solicitante"], PDO::PARAM_INT);
 		$stmt->bindParam(":id_usuario", $datos["id_usuario"], PDO::PARAM_INT);
+		$stmt->bindParam(":area", $datos["area"], PDO::PARAM_INT);
 		$stmt->bindParam(":productos", $datos["productos"], PDO::PARAM_STR);
 		$stmt->bindParam(":total", $datos["total"], PDO::PARAM_STR);
 		

@@ -103,7 +103,7 @@ if ($_SESSION["perfil"]!="1" && $_SESSION["perfil"]!="3") {
 
 
                     //Manda a la vista del usuario el valordel codigo calculado
-                    echo '<input type="text" class="form-control" id="nuevaSalidas" name="nuevaSalida" value="'.$codigo.'" readonly>';
+                    echo '<input type="text" class="form-control" id="nuevaSalida" name="nuevaSalida" value="'.$codigo.'" readonly>';
 
 
                   }
@@ -125,9 +125,9 @@ if ($_SESSION["perfil"]!="1" && $_SESSION["perfil"]!="3") {
 
                   <span class="input-group-addon"><i class="fa fa-users"></i></span>
 
-                  <select class="form-control" id="seleccionarCliente" name="seleccionarCliente" required>
+                  <select class="form-control" id="seleccionarSolicitante" name="seleccionarCliente" required>
 
-                  <option value="">Seleccionar Persona Solicitante</option>
+                  <option areaPerteneciente="ns" value="">Seleccionar Persona Solicitante</option>
 
                   <?php
 
@@ -138,7 +138,7 @@ if ($_SESSION["perfil"]!="1" && $_SESSION["perfil"]!="3") {
 
                      foreach ($solicitantes as $key => $value) {
 
-                       echo '<option value="'.$value["id_solicitante"].'">'.$value["nombres"].' '.$value["apellidos"].'</option>';
+                       echo '<option  value="'.$value["id_solicitante"].'" areaPerteneciente="'.$value["id_area"].'">'.$value["nombres"].' '.$value["apellidos"].'</option>';
 
                      }
 
@@ -156,7 +156,11 @@ if ($_SESSION["perfil"]!="1" && $_SESSION["perfil"]!="3") {
               <!--=====================================
               ENTRADA PARA AGREGAR PRODUCTO
               ======================================-->
-
+              <?php
+                $fechaActual=date('d-m-Y');
+              ?>
+              <input type="hidden" id="idJaladoSolicitante" name="idJaladoSolicitante">
+              <input type="hidden" id="areaSolicitante" name="areaSolicitante">
               <div class="form-group row nuevoProducto" id="nuevoProducto">
 
 
@@ -183,7 +187,7 @@ if ($_SESSION["perfil"]!="1" && $_SESSION["perfil"]!="3") {
 
                 <div class="col-xs-8 pull-right">
 
-                  <table class="table">
+                  <table class="table" >
 
                     <thead>
 
@@ -260,7 +264,7 @@ if ($_SESSION["perfil"]!="1" && $_SESSION["perfil"]!="3") {
     LA TABLA DE PRODUCTOS
     ======================================-->
 
-    <div class="col-lg-7 hidden-md hidden-sm hidden-xs">
+    <div  class="col-lg-7 hidden-md hidden-sm hidden-xs" >
 
       <div class="box box-warning">
 
@@ -268,7 +272,7 @@ if ($_SESSION["perfil"]!="1" && $_SESSION["perfil"]!="3") {
 
         <div class="box-body">
 
-          <table class="table table-bordered table-striped  tablaSalidas">
+          <table  class="table table-bordered table-striped  tablaSalidas" >
 
              <thead>
 

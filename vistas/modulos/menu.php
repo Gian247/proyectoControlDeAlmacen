@@ -14,7 +14,21 @@
 			
 							</a>
 	
-						</li>';
+						</li>
+						
+						
+						<li class="">
+
+							<a href="reporte-productos-fecha">
+			
+								<i class="fa fa-home"></i>
+								<span>Detalle Salida Productos</span>
+			
+							</a>
+	
+						</li>
+						
+						';
 
 				
 

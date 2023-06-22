@@ -16,6 +16,13 @@ require_once "controladores/productos.controlador.php";
 require_once "controladores/productos-entradas.controlador.php";
 require_once "controladores/solicitantes.controlador.php";
 require_once "controladores/salidas.controlador.php";
+require_once "controladores/detalleSalidaProducto.controlador.php";
+require_once "controladores/area.controlador.php";
+require_once "controladores/detalleSalidasUsuario.controlador.php";
+require_once "controladores/detalleSalidaArea.controlar.php";
+
+
+
 
 
 
@@ -31,6 +38,12 @@ require_once "modelos/solicitantes.modelo.php";
 
 require_once "modelos/productos-entradas.modelo.php";
 require_once "modelos/salidas.modelo.php";
+require_once "modelos/detalleSalidaProducto.modelo.php";
+require_once "modelos/area.modelo.php";
+require_once "modelos/detalleSalidaUsuario.modelo.php";
+
+require_once "modelos/detalleSalidaArea.modelo.php";
+
 
 
 

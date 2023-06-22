@@ -63,9 +63,10 @@ AGREGANDO PRODUCTOS A LA VENTA DESDE LA TABLA
 //EVENTO HACER CLICK EN EL BOTON DE AGREGAR PRODUCTO
 
 $(".tablaSalidas tbody").on("click", "button.agregarProducto", function(){
+	
     //Almaceno en una variable el valor del id del producto que viene  incrustado en la etiqueta
 	var idProducto = $(this).attr("idProducto");
-    console.log($(".activarBoton").length);
+    
 	//Remuevo la clase que le da el color azul y le quito la clase agregar producto
 	$(this).removeClass("btn-primary agregarProducto");
 	//Le agrego a boton la clase default que le asigana un color gris
@@ -345,6 +346,21 @@ function sumarTotalPrecios(){
 
 };
 
+/*=========================================================================================
+	DETECTA CUANDO SE LE HACE UNA CAMBIO AL SELECT Y OBTIENE SU VALOR PARA AGREGARLO AL JSON
+============================================================================================*/
+$(".formularioSalida").on("change", "select#seleccionarSolicitante", function(){
+	
+	var area = $('#seleccionarSolicitante>option:selected').attr("areaPerteneciente");
+	var idSol = $('#seleccionarSolicitante>option:selected').val();
+	$("#idJaladoSolicitante").val(idSol);
+	$("#areaSolicitante").val(area);
+	//$(".agregarProducto").removeAttr('disabled');
+	//	$("#seleccionarSolicitante").attr('disabled','disabled');
+	
+
+});
+
 
 
 /*=============================================
@@ -353,18 +369,21 @@ LISTAR TODOS LOS PRODUCTOS
 
 function listarProductos(){
 	
-
+	
+	
 	var listaProductos = [];
-
+	
 	var descripcion = $(".nuevaDescripcionProducto");
 
+	
 	var cantidad = $(".nuevaCantidadProducto");
 
 	var precio = $(".nuevoPrecioProducto");
 
 	for(var i = 0; i < descripcion.length; i++){
-
-		listaProductos.push({ "id" : $(descripcion[i]).attr("idProducto"), 
+		
+		listaProductos.push({ "id_salida" : $("input#nuevaSalida").val(), 
+								"id" : $(descripcion[i]).attr("idProducto"), 
 							  "descripcion" : $(descripcion[i]).val(),
 							  "cantidad" : $(cantidad[i]).val(),
 							  "stockDisponible" : $(cantidad[i]).attr("nuevoStock"),
@@ -452,8 +471,9 @@ BOTON EDITAR SALIDA
 $(".tablas").on("click", ".btnEditarSalida", function(){
 
 	var idSalida = $(this).attr("idSalida");
-
+	
 	window.location = "index.php?ruta=editar-salida&idSalida="+idSalida;
+	
 
 
 })
@@ -565,10 +585,10 @@ $(".tablas").on("click",".btnImprimirFactura", function(){
 DESABILITAR BOTON DE GUARDAR SALIDA SI NO SE ENCUENTRA NINGUN SELECCIONADO
 =============================================*/
 var comrobar;
-console.log(comrobar);
+//console.log(comrobar);
 function desbilitarBotonGuardarSalida(){
 	comrobar=$(".activarBoton").length;
-	console.log(comrobar);
+	
 	if(comrobar>0){
 		
 		$(".botonGuardarSalida").removeAttr('disabled');

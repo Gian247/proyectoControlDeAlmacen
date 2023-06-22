@@ -6,6 +6,7 @@ $orden = "id";
 
 
 $salidas=ControladorSalidas::ctrSumaTotalSalidas();
+//var_dump($salidas["1"][""]);
 
 $ingresos=ControladorEntradasAlmacen::ctrSumaTotalIngresos();
 

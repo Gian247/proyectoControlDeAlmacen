@@ -50,7 +50,7 @@ $('#daterange-btn2').daterangepicker(
 CANCELAR RANGO DE FECHAS
 =============================================*/
 
-$(".daterangepicker.opensright .range_inputs .cancelBtn").on("click", function(){
+$(".daterangepicker.opensright  .range_inputs .cancelBtn").on("click", function(){
 
 	localStorage.removeItem("capturarRango2");
 	localStorage.clear();
