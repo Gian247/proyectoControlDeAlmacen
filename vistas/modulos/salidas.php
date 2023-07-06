@@ -1,10 +1,10 @@
 <?php
-if ($_SESSION["perfil"]!="1" && $_SESSION["perfil"]!="2" && $_SESSION["perfil"]!="3") {
+if ($_SESSION["perfil"] != "1" && $_SESSION["perfil"] != "2" && $_SESSION["perfil"] != "3") {
   echo '<script>
       window.location="inicio";
     </script>';
   return;
-  }
+}
 ?>
 <div class="content-wrapper">
 
@@ -42,13 +42,13 @@ if ($_SESSION["perfil"]!="1" && $_SESSION["perfil"]!="2" && $_SESSION["perfil"]!
 
         </a>
         <div class="box-tools pull-right">
-          
 
-            <a href="vistas/modulos/descargar-reporte.php?reporte=reporte">
-              <button class="btn btn-success" style="margin-top:5px">Descargar reporte en Excel</button>
-            </a>
 
-          </div>
+          <a href="vistas/modulos/descargar-reporte.php?reporte=reporte">
+            <button class="btn btn-success" style="margin-top:5px">Descargar reporte en Excel</button>
+          </a>
+
+        </div>
 
       </div>
 
@@ -124,12 +124,12 @@ if ($_SESSION["perfil"]!="1" && $_SESSION["perfil"]!="2" && $_SESSION["perfil"]!
                         <i class="fa fa-print">
                       </i></button>
                       <button title="Visualizar Productos asignados" class="btn btn-success   btnVisualizarSalida" data-toggle="modal" data-target="#modalVisualizarProductos" idSalida="' . $value["id_salida"] . '"><i class="fa fa-eye"></i></button>';
-                      if($_SESSION["perfil"]=="1"){
-                        echo '<button class="btn btn-warning btnEditarSalida" idSalida="' . $value["id_salida"] . '"><i class="fa fa-pencil"></i></button>';
-                      }
-                      
+              if ($_SESSION["perfil"] == "1") {
+                echo '<button class="btn btn-warning btnEditarSalida" idSalida="' . $value["id_salida"] . '"><i class="fa fa-pencil"></i></button>';
+              }
 
-              
+
+
               echo '</div>  
 
                   </td>
@@ -138,15 +138,15 @@ if ($_SESSION["perfil"]!="1" && $_SESSION["perfil"]!="2" && $_SESSION["perfil"]!
             }
 
 
-            $envioDeNotificacionCorreo=ControladorProductos::ctrMostrarProductos("producto",null,"id_producto");
+            $envioDeNotificacionCorreo = ControladorProductos::ctrMostrarProductos("producto", null, "id_producto");
             foreach ($envioDeNotificacionCorreo as $key => $value) {
-              if($value["stockDisponible"]==0 && $value["envio_alerta"]==0){
+              if ($value["stockDisponible"] == 0 && $value["envio_alerta"] == 0) {
 
 
-                $para= "caguilar@limavillacollege.edu.pe".', ';
-                $para.='gflores@limavillacollege.edu.pe';
-                $titulo='Alerta de Productos Sistema LVC';
-                $mensaje= '
+                $para = "caguilar@limavillacollege.edu.pe" . ', ';
+                $para .= 'gflores@limavillacollege.edu.pe';
+                $titulo = 'Alerta de Productos Sistema LVC';
+                $mensaje = '
                 <html>
                   <head>
                     <title>Recordatorio de cumpleaños para Agosto</title>
@@ -159,7 +159,7 @@ if ($_SESSION["perfil"]!="1" && $_SESSION["perfil"]!="2" && $_SESSION["perfil"]!
                         <th>Código Único </th><th>Lote Ingreso </th><th>Descripción </th><th>Stock Disponible </th>
                       </tr>
                       <tr>
-                        <td >'.$value["id_producto"].'</td><td>'.$value["codigo_ingreso"].'</td><td>'.$value["descripcion"].'</td><td>'.$value["stockDisponible"].'</td>
+                        <td >' . $value["id_producto"] . '</td><td>' . $value["codigo_ingreso"] . '</td><td>' . $value["descripcion"] . '</td><td>' . $value["stockDisponible"] . '</td>
                       </tr>
                       
                     </table>
@@ -167,13 +167,12 @@ if ($_SESSION["perfil"]!="1" && $_SESSION["perfil"]!="2" && $_SESSION["perfil"]!
                   </html>
                 ';
 
-                $cabeceras = 'MIME-Version: 1.0'."\r\n";
-                $cabeceras.='Content-type: text/html; charset=iso-8859-1'."\r\n";
-                
-                mail($para,$titulo,$mensaje,$cabeceras);
+                $cabeceras = 'MIME-Version: 1.0' . "\r\n";
+                $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-                $ActualizarAlertaProducto=ControladorProductos::ctrEditarAlertaStockAgotado($value["id_producto"], $value["envio_alerta"]);
+                mail($para, $titulo, $mensaje, $cabeceras);
 
+                $ActualizarAlertaProducto = ControladorProductos::ctrEditarAlertaStockAgotado($value["id_producto"], $value["envio_alerta"]);
               }
             }
 
@@ -225,7 +224,7 @@ if ($_SESSION["perfil"]!="1" && $_SESSION["perfil"]!="2" && $_SESSION["perfil"]!
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title tituloModalVisualizar" ></h4>
+          <h4 class="modal-title tituloModalVisualizar"></h4>
 
         </div>
         <!-- **********************************
@@ -237,29 +236,29 @@ if ($_SESSION["perfil"]!="1" && $_SESSION["perfil"]!="2" && $_SESSION["perfil"]!
           <div class="box-body">
 
 
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Productos Entregados</h3>
+            <div class="box">
+              <div class="box-header">
+                <h3 class="box-title">Productos Entregados</h3>
+              </div>
+              <!-- /.box-header -->
+              <div class="box-body no-padding">
+                <table id="visualizarProd" class="table table-striped">
+                  <tr>
+                    <th style="width: 10px">Codigo</th>
+                    <th>Descripcion</th>
+                    <th>Cantidad</th>
+                    <th>Precio Unitario</th>
+                  </tr>
+
+
+
+
+                </table>
+              </div>
+              <!-- /.box-body -->
             </div>
-            <!-- /.box-header -->
-            <div class="box-body no-padding">
-              <table id="visualizarProd" class="table table-striped">
-                <tr>
-                  <th style="width: 10px">Codigo</th>
-                  <th>Descripcion</th>
-                  <th>Cantidad</th>
-                  <th>Precio Unitario</th>
-                </tr>
-                
-                
-                
-                
-              </table>
-            </div>
-            <!-- /.box-body -->
-          </div>
-            
-            
+
+
 
 
 
@@ -271,11 +270,11 @@ if ($_SESSION["perfil"]!="1" && $_SESSION["perfil"]!="2" && $_SESSION["perfil"]!
       **************************************-->
         <div class="modal-footer">
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-          
+
         </div>
     </div>
     <?php
-    
+
     ?>
     </form>
 

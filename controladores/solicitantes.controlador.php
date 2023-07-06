@@ -16,16 +16,16 @@ class ControladorSolicitantes{
 	=============================================*/
     static public function ctrAgregarSolicitante(){
         if(isset($_POST["nuevoNombreSolicitante"])){
-            if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombreSolicitante"]) &&
-        preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoApellidoSolicitante"]) &&
-        preg_match('/^[0-9]+$/', $_POST["nuevaDocumentoSolicitante"])){
-
+            
             $tabla = "solicitante";
             $datos=array("nombre"=>$_POST["nuevoNombreSolicitante"],
                         "apellido"=>$_POST["nuevoApellidoSolicitante"],
                         "documento"=>$_POST["nuevaDocumentoSolicitante"],
+                        
                         "correo"=>$_POST["nuevoCorreoSolicitante"],
-                        "perfil"=>$_POST["nuevoPerfilSolicitante"]);
+                        "perfil"=>$_POST["nuevoPerfilSolicitante"],
+                        "area"=>$_POST["nuevaAreaSolicitante"]);
+                        
             $respuesta = ModeloSolicitante::mdlAgregrSolicitante($tabla,$datos);
             if($respuesta=="ok"){
                 echo'<script>
@@ -45,25 +45,7 @@ class ControladorSolicitantes{
 
                     </script>';
             }
-        }else{
-            echo'<script>
-
-            swal({
-                  type: "error",
-                  title: "!El solicitante  no puede tener campos vacios o llevar caracteres especiales¡",
-                  showConfirmButton: true,
-                  confirmButtonText: "Cerrar",
-                  closeOnConfirm: false
-                  }).then(function(result){
-                            if (result.value) {
-
-                            window.location = "solicitantes";
-
-                            }
-                        })
-
-            </script>';
-        }
+        
         }
 
     }
@@ -72,11 +54,7 @@ class ControladorSolicitantes{
 	=============================================*/
     static public function ctrEditarSolicitante(){
         if (isset($_POST["editarNombreSolicitante"])) {
-            if (
-                preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarNombreSolicitante"]) &&
-                preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarApellidoSolicitante"]) &&
-                preg_match('/^[0-9]+$/', $_POST["editarDocumentoSolicitante"])
-            ) {
+            
                 $tabla = "solicitante";
                 $datos = array(
                     "nombre" => $_POST["editarNombreSolicitante"],
@@ -84,6 +62,7 @@ class ControladorSolicitantes{
                     "documento" => $_POST["editarDocumentoSolicitante"],
                     "correo" => $_POST["editarCorreoSolicitante"],
                     "perfil" => $_POST["editarPerfilSolicitante"],
+                    "area" => $_POST["editarAreaSolicitante"],
                     "id" => $_POST["idSolicitante"]
                 );
                 $respuesta = ModeloSolicitante::mdlEditarSolicitante($tabla, $datos);
@@ -109,25 +88,7 @@ class ControladorSolicitantes{
 
 
 
-            } else {
-                echo '<script>
-
-				swal({
-					  type: "error",
-					  title: "!El sistem no admite campos vacio o caracteres especiales¡",
-					  showConfirmButton: true,
-					  confirmButtonText: "Cerrar",
-                      closeOnConfirm: false
-					  }).then(function(result){
-								if (result.value) {
-
-								window.location = "solicitantes";
-
-								}
-							})
-
-				</script>';
-            }
+            
         }
     }
 

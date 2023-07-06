@@ -27,6 +27,16 @@
 							</a>
 	
 						</li>
+						<li class="">
+
+							<a href="area">
+			
+								<i class="fa fa-home"></i>
+								<span>Areas</span>
+			
+							</a>
+	
+						</li>
 						
 						';
 

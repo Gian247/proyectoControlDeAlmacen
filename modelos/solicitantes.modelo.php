@@ -19,12 +19,13 @@ class ModeloSolicitante{
 
     }
     static public function mdlAgregrSolicitante($tabla,$datos){
-        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombres, apellidos, documento, correo, id_perfil) VALUES (:nombres, :apellidos, :documento, :correo, :perfil)");
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombres, apellidos, documento, correo, id_perfil, id_area) VALUES (:nombres, :apellidos, :documento, :correo, :perfil, :area)");
         $stmt->bindParam(":nombres",$datos["nombre"],PDO::PARAM_STR);
         $stmt->bindParam(":apellidos",$datos["apellido"],PDO::PARAM_STR);
         $stmt->bindParam(":documento",$datos["documento"],PDO::PARAM_STR);
         $stmt->bindParam(":correo",$datos["correo"],PDO::PARAM_STR);
-        $stmt->bindParam(":perfil",$datos["perfil"],PDO::PARAM_STR);
+        $stmt->bindParam(":perfil",$datos["perfil"],PDO::PARAM_INT);
+        $stmt->bindParam(":area",$datos["area"],PDO::PARAM_INT);
 
         if($stmt->execute()){
             return "ok";
@@ -37,12 +38,13 @@ class ModeloSolicitante{
 
     }
     static public function mdlEditarSolicitante($tabla,$datos){
-        $stmt=Conexion::conectar()->prepare("UPDATE $tabla SET nombres = :nombres, apellidos=:apellidos, documento = :documento, correo=:correo, id_perfil=:perfil WHERE id_solicitante=:id");
+        $stmt=Conexion::conectar()->prepare("UPDATE $tabla SET nombres = :nombres, apellidos=:apellidos, documento = :documento, correo=:correo, id_perfil=:perfil, id_area=:area WHERE id_solicitante=:id");
         $stmt->bindParam(":nombres",$datos["nombre"],PDO::PARAM_STR);
         $stmt->bindParam(":apellidos",$datos["apellido"],PDO::PARAM_STR);
         $stmt->bindParam(":documento",$datos["documento"],PDO::PARAM_STR);
         $stmt->bindParam(":correo",$datos["correo"],PDO::PARAM_STR);
-        $stmt->bindParam(":perfil",$datos["perfil"],PDO::PARAM_STR);
+        $stmt->bindParam(":perfil",$datos["perfil"],PDO::PARAM_INT);
+        $stmt->bindParam(":area",$datos["area"],PDO::PARAM_INT);
         $stmt->bindParam(":id",$datos["id"],PDO::PARAM_INT);
 
         if($stmt->execute()){

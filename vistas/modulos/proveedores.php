@@ -157,7 +157,7 @@
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control input-lg" name="nuevoContactoEmpresa" placeholder="INGRESE EL NOMBRE DEL REPRESENTANTE" required>
+                                <input type="text" class="form-control input-lg" name="nuevoContactoEmpresa" placeholder="INGRESE EL NOMBRE DEL REPRESENTANTE" >
                             </div>
                         </div>
 
@@ -166,14 +166,14 @@
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-tty"></i></span>
-                                <input type="text" class="form-control input-lg" name="nuevoTelefono" id="nuevoUsuario" placeholder="# CONTACTO( 0156466 / 984578457)" required>
+                                <input type="text" class="form-control input-lg" name="nuevoTelefono" id="nuevoUsuario" placeholder="# CONTACTO( 0156466 / 984578457)" >
                             </div>
                         </div>
                         <!--Entrada de ruc-->
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-check-square"></i></span>
-                                <input type="text" class="form-control input-lg" name="nuevoRuc" placeholder="INGRESE EL RUC DE LA EMPRESA" required>
+                                <input type="text" class="form-control input-lg" name="nuevoRuc" placeholder="INGRESE EL RUC DE LA EMPRESA" >
                             </div>
                         </div>
 
@@ -181,7 +181,7 @@
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-at"></i></span>
-                                <input type="text" class="form-control input-lg" name="nuevoCorreoEmpresa" placeholder="INGRESE CORREO DE CONTACTO" required>
+                                <input type="text" class="form-control input-lg" name="nuevoCorreoEmpresa" placeholder="INGRESE CORREO DE CONTACTO" >
                             </div>
                         </div>
 

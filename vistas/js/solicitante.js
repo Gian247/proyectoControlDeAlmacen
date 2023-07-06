@@ -23,6 +23,8 @@ $(".tablas").on("click", ".btnEditarSolicitante",function(){
 	       $("#editarCorreoSolicitante").val(respuesta["correo"]);
            $("#editarPerfilSolicitante").html(respuesta["id_perfil"]);
            $("#editarPerfilSolicitante").val(respuesta["id_perfil"]);
+           $("#editarAreaSolicitante").html(respuesta["id_area"]);
+           $("#editarAreaSolicitante").val(respuesta["id_area"]);
 	       
 	    }
 

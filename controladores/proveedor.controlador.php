@@ -15,10 +15,7 @@ class ControladorProveedor{
      ************************************/
     static public function ctrIngresarProveedores(){
         if(isset($_POST["nuevoRubro"])){
-            if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',$_POST["nuevoRubro"])&&
-            preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',$_POST["nuevoContactoEmpresa"])&&
-            preg_match('/^[0-9 ]+$/',$_POST["nuevoTelefono"])&&
-            preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',$_POST["nuevoRuc"])){
+            if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',$_POST["nuevoRubro"])){
                 $tabla = "proveedor";
                 $datos=array(
                 "nombre" => $_POST["nuevoProveedor"],
@@ -78,11 +75,8 @@ class ControladorProveedor{
 
      static public function ctrEditarProveedor(){
         //Comprobar si esta definida la variable POST
-        if(isset($_POST["editarProveedor"])){
-            if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',$_POST["editarRubro"])&&
-            preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',$_POST["editarContactoEmpresa"])&&
-            preg_match('/^[0-9 ]+$/',$_POST["editarTelefono"])&&
-            preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',$_POST["editarRuc"])){
+        if(isset($_POST["editarRubro"])){
+            if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',$_POST["editarRubro"])){
 
                 $tabla = "proveedor";
                 $datos=array(

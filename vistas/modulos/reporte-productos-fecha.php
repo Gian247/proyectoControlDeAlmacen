@@ -286,3 +286,85 @@
   </section>
   <!-- /.content -->
 </div>
+
+
+
+
+<!-- **********************************************
+          MODAL VISUALIZAR PRODUCTOS ENTREGADOS
+ **************************************************-->
+
+ <div id="modalVisualizarProductosPorUsuario" class="modal fade" role="dialog">
+
+<div class="modal-dialog">
+
+  <!-- -->
+  <div class="modal-content">
+
+    <form role="form" method="post">
+
+
+      <!-- **********************************
+              CABEZA DEL MODAL
+    **************************************-->
+
+      <div class="modal-header" style="background:#3c8dbc; color:white">
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+        <h4 class="modal-title tituloModalVisualizar"></h4>
+
+      </div>
+      <!-- **********************************
+            CUERPO DEL MODAL
+    **************************************-->
+
+      <div class="modal-body">
+
+        <div class="box-body">
+
+
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Productos Entregados</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <table id="visualizarProd" class="table table-striped">
+                <tr>
+                  <th style="width: 10px">Codigo</th>
+                  <th>Descripcion</th>
+                  <th>Cantidad</th>
+                  <th>Precio Unitario</th>
+                </tr>
+
+
+
+
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+
+
+
+
+
+        </div>
+
+      </div>
+      <!-- **********************************
+              PIE DEL MODAL
+    **************************************-->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+      </div>
+  </div>
+  <?php
+
+  ?>
+  </form>
+
+</div>
+</div>
