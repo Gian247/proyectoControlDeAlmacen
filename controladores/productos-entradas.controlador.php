@@ -20,23 +20,23 @@ class ControladorProductosEntradas{
     static public function ctrIngresarProductoEntradas(){
 
         if(isset($_POST["nuevoCodigoEntrada"])){
-            if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoProductoEntrada"]) &&
-            preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ]+$/', $_POST["nuevoCodigo"]) &&
-            preg_match('/^[0-9]+$/', $_POST["nuevoStock"]) ){
+                
+            
                 $tabla = "producto";
                 $calculoTotal=((float)$_POST["nuevoStock"] * (float)$_POST["nuevoPrecioUnitario"]);
                 
                 $datos = array("categoria"=>$_POST["nuevoProductoCategoria"],
                                 "codigoIngreso"=>$_POST["nuevoCodigoEntrada"],
                                 "nombreProducto"=>$_POST["nuevoProductoEntrada"],
-                                "codigoProducto"=>$_POST["nuevoCodigo"],
                                 "stock"=>$_POST["nuevoStock"],
+                                "unidad_medida"=>$_POST["nuevaUnidadMed"],
                                 "stockDisponible"=>$_POST["nuevoStock"],
                                 "unitario"=>$_POST["nuevoPrecioUnitario"],
                                 "lote"=>$calculoTotal,
                                 "fecha"=>$_POST["nuevaFechaIngreso"]
                                 );
                 
+                                
                 $respuesta = ModeloProductosEntradas::mdlIngresarProductosEntrada($tabla,$datos);
                 if($respuesta=="ok"){
                     echo '
@@ -64,34 +64,7 @@ class ControladorProductosEntradas{
                          ';
                 }
 
-            }
-            else{
-
-
-                echo '<script>
-
-                    let ingreso = $(".botonGuia").attr("ingreso"); 
-                    let fecha = $(".botonGuia").attr("fecha"); 
-                    swal({
-
-                        type: "error",
-                        title: "¡El usuario no puede ir vacío o llevar caracteres especiales!",
-                        showConfirmButton: true,
-                        confirmButtonText: "Cerrar"
-
-                    }).then(function(result){
-
-                        if(result.value){
-                        
-                            window.location="index.php?ruta=productoss&ingreso="+ingreso+"&f="+fecha;
-
-                        }
-
-                    });
             
-
-                </script>';
-            }
         }
         
 

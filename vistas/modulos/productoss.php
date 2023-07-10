@@ -34,7 +34,7 @@
 
                   <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarProducto">Agregar
                       Productos</button>
-                  
+
 
                   <button class="btn btn-warning pull-right regresarEntradas">Regresar</button>
               </div>
@@ -47,10 +47,11 @@
 
                           <tr>
                               <th>#</th>
-                              <th>Codigo</th>
+
                               <th>Producto</th>
                               <th>Categoria</th>
                               <th>Stock</th>
+                              <th>Unidad Medida</th>
                               <th>P.unitario</th>
                               <th>P.Lote</th>
                               <th>Ingreso</th>
@@ -75,23 +76,30 @@
 
                           <tr>
                               <td><?php echo ($key+1); ?></td>
-                              <td><?php echo $value["codigo_producto"]; ?></td>
+
                               <td><?php echo $value["descripcion"]; ?></td>
                               <td><?php echo $categoria["categoria"]; ?></td>
                               <td><?php echo $value["stock"]; ?></td>
+                              <td><?php echo $value["unidad_medida"]; ?></td>
                               <td><?php echo $value["costo_unitario"]; ?></td>
                               <td><?php echo $value["costo_lote"]; ?></td>
                               <td><?php echo $value["fecha_ingreso"]; ?></td>
 
                               <td>
                                   <div class="btn-group">
-                                    <?php if($_SESSION["perfil"]=="1"): ?>
-                                        <button class="btn btn-warning btnEditarUsuario" data-toggle="modal" idEntradaProducto="<?php //echo $value["id_EntradaProducto"] ;?>" ><i class="fa fa-pencil"></i></button>
-                                        <button class="btn btn-danger"><i class="fa fa-times btnEliminarEntradaProducto" idEntradaProducto="<?php echo $value["id_producto"];?>" ingreso="<?php echo $_GET["ingreso"]; ?>" fecha="<?php echo $_GET["f"]; ?>"></i></button>
-                                    <?php else : ?>
-                                        <button class="btn btn-default"><i class="fa fa-times"> Acciones Desactivadas</i></button>
-                                    <?php endif;?>
-                                 
+                                      <?php if($_SESSION["perfil"]=="1"): ?>
+                                      <button class="btn btn-warning btnEditarUsuario" data-toggle="modal"
+                                          idEntradaProducto="<?php //echo $value["id_EntradaProducto"] ;?>"><i
+                                              class="fa fa-pencil"></i></button>
+                                      <button class="btn btn-danger"><i class="fa fa-times btnEliminarEntradaProducto"
+                                              idEntradaProducto="<?php echo $value["id_producto"];?>"
+                                              ingreso="<?php echo $_GET["ingreso"]; ?>"
+                                              fecha="<?php echo $_GET["f"]; ?>"></i></button>
+                                      <?php else : ?>
+                                      <button class="btn btn-default"><i class="fa fa-times"> Acciones
+                                              Desactivadas</i></button>
+                                      <?php endif;?>
+
 
                                   </div>
 
@@ -150,12 +158,13 @@
 
                           <!--Entrada de codigo ingreso-->
                           <div class="form-group">
-                                  <div class="input-group">
-                                      <span class="input-group-addon"><i class="fa  fa-plus-square"></i></span>
-                                      <input type="number" class="form-control input-lg" name="nuevoCodigoEntrada" value="<?php echo $_GET["ingreso"];?>"readonly required>
-                                  </div>
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa  fa-plus-square"></i></span>
+                                  <input type="number" class="form-control input-lg" name="nuevoCodigoEntrada"
+                                      value="<?php echo $_GET["ingreso"];?>" readonly required>
+                              </div>
                           </div>
-                         
+
 
                           <!--Entrada de nombre producto-->
                           <div class="form-group">
@@ -166,14 +175,7 @@
                               </div>
                           </div>
 
-                          <!--Entrada de codigo producto-->
-                          <div class="form-group">
-                              <div class="input-group">
-                                  <span class="input-group-addon"><i class="fa fa-check"></i></span>
-                                  <input type="text" class="form-control input-lg" name="nuevoCodigo"
-                                      placeholder="CODIGO" required>
-                              </div>
-                          </div>
+
 
                           <!--Entrada de categoria-->
                           <div class="form-group">
@@ -186,7 +188,8 @@
                                          $valor = null;
                                          $cate=ControladorCategorias::ctrMostrarCategorias($item,$valor);
                                          foreach ($cate as $key => $value):?>
-                                        <option value="<?php echo $value["id_categoria"];?>"><?php echo $value["categoria"];?></option> 
+                                      <option value="<?php echo $value["id_categoria"];?>">
+                                          <?php echo $value["categoria"];?></option>
 
                                       <?php endforeach;?>
 
@@ -197,16 +200,35 @@
                           <div class="form-group">
                               <div class="input-group">
                                   <span class="input-group-addon"><i class="fa fa-th"></i></span>
-                                  <input type="number" class="form-control input-lg" name="nuevoStock"
+                                  <input type="number" step="any" class="form-control input-lg" name="nuevoStock"
                                       placeholder="STOCK" required>
+                              </div>
+                          </div>
+
+
+                          <!--Entrada de Unidad de medida-->
+                          <div class="form-group">
+                              <div class="input-group">
+                                  <span class="input-group-addon"><i class="fa fa-building-o"></i></span>
+                                  <select class="form-control input-lg" name="nuevaUnidadMed" required>
+                                      <option value="">SELECCIONE UNIDAD DE MEDIDA</option>
+                                      <option value="UNIDAD">UNIDAD</option>
+                                      <option value="mlg">MILIGRAMO</option>
+                                      <option value="Kg">KILOGRAMO</option>
+                                      <option value="Ltrs">LITROS</option>
+                                      <option value="GALON">GALON</option>
+                                      <option value="PAQUETE">PAQUETE</option>
+                                      
+                                      
+                                  </select>
                               </div>
                           </div>
                           <!--Entrada de precio unitario-->
                           <div class="form-group">
                               <div class="input-group">
                                   <span class="input-group-addon"><i class="fa fa-money"></i></span>
-                                  <input type="number" step="any" class="form-control input-lg" name="nuevoPrecioUnitario"
-                                      placeholder="PRECIO UNITARIO" required>
+                                  <input type="number" step="any" class="form-control input-lg"
+                                      name="nuevoPrecioUnitario" placeholder="PRECIO UNITARIO" required>
                               </div>
                           </div>
 
@@ -214,10 +236,11 @@
                           <div class="form-group">
                               <div class="input-group">
                                   <span class="input-group-addon"><i class="fa fa-calendar-check-o"></i></span>
-                                  <input type="text" class="form-control input-lg" name="nuevaFechaIngreso" value="<?php echo $_GET["f"]; ?>" readonly required>
+                                  <input type="text" class="form-control input-lg" name="nuevaFechaIngreso"
+                                      value="<?php echo $_GET["f"]; ?>" readonly required>
                               </div>
                           </div>
-                          
+
 
                       </div>
 
@@ -228,7 +251,8 @@
                   <div class="modal-footer">
 
                       <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-                      <button type="submit" ingreso="<?php echo $_GET["ingreso"]; ?>" fecha="<?php echo $_GET["f"]; ?>" class="btn btn-primary botonGuia">Guardar Entrada</button>
+                      <button type="submit" ingreso="<?php echo $_GET["ingreso"]; ?>" fecha="<?php echo $_GET["f"]; ?>"
+                          class="btn btn-primary botonGuia">Guardar Entrada</button>
                   </div>
           </div>
           <?php
