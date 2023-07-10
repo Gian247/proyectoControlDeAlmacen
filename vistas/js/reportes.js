@@ -18,8 +18,9 @@ RANGO DE FECHAS
 =============================================*/
 $('#daterange-btn2').daterangepicker(
   {
+    buttonClasses:'btn btn-sm btnrep',
     ranges   : {
-      'Hoy'       : [moment(), moment()],
+      'Hoy2'       : [moment(), moment()],
       'Ayer'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
       'Últimos 7 días' : [moment().subtract(6, 'days'), moment()],
       'Últimos 30 días': [moment().subtract(29, 'days'), moment()],
@@ -50,7 +51,7 @@ $('#daterange-btn2').daterangepicker(
 CANCELAR RANGO DE FECHAS
 =============================================*/
 
-$(".daterangepicker.opensright  .range_inputs .cancelBtn").on("click", function(){
+$(".daterangepicker.opensright  .range_inputs .btnrep").on("click", function(){
 
 	localStorage.removeItem("capturarRango2");
 	localStorage.clear();
@@ -65,7 +66,7 @@ $(".daterangepicker.opensright .ranges li").on("click", function(){
 
 	var textoHoy = $(this).attr("data-range-key");
 
-	if(textoHoy == "Hoy"){
+	if(textoHoy == "Hoy2"){
 
     var d = new Date();
     
@@ -95,7 +96,7 @@ $(".daterangepicker.opensright .ranges li").on("click", function(){
 
     } 
 
-    	localStorage.setItem("capturarRango2", "Hoy");
+    	localStorage.setItem("capturarRango2", "Hoy2");
 
     	window.location = "index.php?ruta=reportes&fechaInicial="+fechaInicial+"&fechaFinal="+fechaFinal;
 

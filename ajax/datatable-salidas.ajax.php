@@ -48,7 +48,7 @@ class TablaProductoSalidas{
 
 		  	$datosJson .='[
 			      "'.($i+1).'",
-			      "'.$productos[$i]["codigo_producto"].'",
+			      "'.$productos[$i]["id_producto"].'",
 			      "'.$productos[$i]["descripcion"].'",
 			      "'.$stock.'",
 			      "'.$botones.'"

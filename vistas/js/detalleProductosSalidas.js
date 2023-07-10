@@ -1,11 +1,23 @@
 /*=============================================
+Variable localstorage
+=============================================*/
+if(localStorage.getItem("capturarRango")!=null){
+	$("#daterange-btn span").html(localStorage.getItem("capturarRango"));
+}else{
+	$("#daterange-btn span").html('<i class="fa fa-calendar"></i> Rango de fecha');
+}
+
+
+
+
+/*=============================================
 RANGO DE FECHAS
 =============================================*/
 
 $('#daterange-btn').daterangepicker(
 	
 	{
-		
+		buttonClasses:'btn btn-sm btncan',
 	  ranges   : {
 		'Hoy'       : [moment(), moment()],
 		'Ayer'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
@@ -39,11 +51,12 @@ $('#daterange-btn').daterangepicker(
   CANCELAR RANGO DE FECHAS
   =============================================*/
   
-  $(".daterangepicker.opensright .range_inputs .cancelBtn").on("click", function(){
+  $(".daterangepicker.opensright .range_inputs .btncan").on("click", function(){
   
 	  localStorage.removeItem("capturarRango");
 	  localStorage.clear();
-	  window.location = "reporte-productos-fecha";
+	  var lugar="reporte-productos-fecha";
+	  window.location = lugar;
   })
   
   /*=============================================

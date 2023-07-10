@@ -59,6 +59,7 @@
         if (this.element.hasClass('dropup'))
             this.drops = 'up';
 
+        
         this.buttonClasses = 'btn btn-sm';
         this.applyClass = 'btn-success';
         this.cancelClass = 'btn-default';

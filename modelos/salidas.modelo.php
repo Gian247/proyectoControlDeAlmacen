@@ -122,11 +122,13 @@ class ModeloSalidas{
 
 
 			if($fechaFinalMasUno == $fechaActualMasUno){
-
+				$fechaInicial=$fechaInicial." 00:00:00";
+                $fechaFinalMasUno=$fechaFinalMasUno." 23:59:59";
 				$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE fecha_salida BETWEEN '$fechaInicial' AND '$fechaFinalMasUno' ORDER BY id_salida DESC");
 
 			}else{
-				
+				$fechaInicial=$fechaInicial." 00:00:00";
+				$fechaFinal=$fechaFinal." 23:59:59";
 				$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE fecha_salida BETWEEN '$fechaInicial' AND '$fechaFinal' ORDER BY id_salida DESC");
 
 			}

@@ -8,85 +8,97 @@ if ($_SESSION["perfil"] != "1" && $_SESSION["perfil"] != "2" && $_SESSION["perfi
 ?>
 <div class="content-wrapper">
 
-  <section class="content-header">
+    <section class="content-header">
 
-    <h1>
+        <h1>
 
-      Administrar Salidas
+            Administrar Salidas
 
-    </h1>
+        </h1>
 
-    <ol class="breadcrumb">
+        <ol class="breadcrumb">
 
-      <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
+            <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
 
-      <li class="active">Administrar Salidas</li>
+            <li class="active">Administrar Salidas</li>
 
-    </ol>
+        </ol>
 
-  </section>
-
-  <section class="content">
-
-    <div class="box">
-
-      <div class="box-header with-border">
-
-        <a href="crear-salida">
-
-          <button class="btn btn-primary">
-
-            Agregar Salida
-
-          </button>
-
-        </a>
-        <div class="box-tools pull-right">
+    </section>
 
 
-          <a href="vistas/modulos/descargar-reporte.php?reporte=reporte">
-            <button class="btn btn-success" style="margin-top:5px">Descargar reporte en Excel</button>
-          </a>
+    <section class="content">
 
-        </div>
+        <div class="box">
 
-      </div>
+            <div class="box-header with-border">
+                <div class="input-group">
+                    <button type="button" class="btn btn-default " id="daterange-btn3">
+                        <span>
+                            <i class="fa fa-calendar"></i> Rango de fecha
+                        </span>
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                </div>
 
-      <div class="box-body">
 
-        <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
+            </div>
 
-          <thead>
+            <div class="box-header with-border">
 
-            <tr>
+                <a href="crear-salida">
 
-              <th style="width:10px">#</th>
-              <th>Código Salida</th>
-              <th>Solicitante</th>
-              <th>Recepción solicitud</th>
+                    <button class="btn btn-primary">
 
-              <th>Valor Total Salida</th>
-              <th>Fecha Salida</th>
-              <th>Acciones</th>
+                        Agregar Salida
 
-            </tr>
+                    </button>
 
-          </thead>
+                </a>
+                <div class="box-tools pull-right">
 
-          <tbody>
 
-            <?php
-            /*if(isset($_GET["fechaInicial"])){
+                    <a href="vistas/modulos/descargar-reporte.php?reporte=reporte">
+                        <button class="btn btn-success" style="margin-top:5px">Descargar reporte en Excel</button>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="box-body">
+
+                <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
+
+                    <thead>
+
+                        <tr>
+
+                            <th style="width:10px">#</th>
+                            <th>Código Salida</th>
+                            <th>Solicitante</th>
+                            <th>Recepción solicitud</th>
+
+                            <th>Valor Total Salida</th>
+                            <th>Fecha Salida</th>
+                            <th>Acciones</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <?php
+            if(isset($_GET["fechaInicial"])){
             $fechaInicial=$_GET["fechaInicial"];
             $fechaFinal=$_GET["fechaFinal"];
           }else{
             $fechaInicial=null;
             $fechaFinal=null;
-          }*/
-            $item = null;
-            $valor = null;
-
-            $respuesta = ControladorSalidas::ctrMostrarSalidas($item, $valor);
+          }
+            
+            $respuesta = ControladorSalidas::ctrRangoFechasSalidas($fechaInicial, $fechaFinal);
 
             foreach ($respuesta as $key => $value) {
 
@@ -180,11 +192,11 @@ if ($_SESSION["perfil"] != "1" && $_SESSION["perfil"] != "2" && $_SESSION["perfi
 
 
 
-          </tbody>
+                    </tbody>
 
-        </table>
+                </table>
 
-        <?php
+                <?php
 
         /*$eliminarVenta = new ControladorVentas();
       $eliminarVenta -> ctrEliminarVenta();*/
@@ -192,11 +204,11 @@ if ($_SESSION["perfil"] != "1" && $_SESSION["perfil"] != "2" && $_SESSION["perfi
         ?>
 
 
-      </div>
+            </div>
 
-    </div>
+        </div>
 
-  </section>
+    </section>
 
 </div>
 
@@ -208,75 +220,75 @@ if ($_SESSION["perfil"] != "1" && $_SESSION["perfil"] != "2" && $_SESSION["perfi
 
 <div id="modalVisualizarProductos" class="modal fade" role="dialog">
 
-  <div class="modal-dialog">
+    <div class="modal-dialog">
 
-    <!-- -->
-    <div class="modal-content">
+        <!-- -->
+        <div class="modal-content">
 
-      <form role="form" method="post">
+            <form role="form" method="post">
 
 
-        <!-- **********************************
+                <!-- **********************************
                 CABEZA DEL MODAL
       **************************************-->
 
-        <div class="modal-header" style="background:#3c8dbc; color:white">
+                <div class="modal-header" style="background:#3c8dbc; color:white">
 
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title tituloModalVisualizar"></h4>
+                    <h4 class="modal-title tituloModalVisualizar"></h4>
 
-        </div>
-        <!-- **********************************
+                </div>
+                <!-- **********************************
               CUERPO DEL MODAL
       **************************************-->
 
-        <div class="modal-body">
+                <div class="modal-body">
 
-          <div class="box-body">
-
-
-            <div class="box">
-              <div class="box-header">
-                <h3 class="box-title">Productos Entregados</h3>
-              </div>
-              <!-- /.box-header -->
-              <div class="box-body no-padding">
-                <table id="visualizarProd" class="table table-striped">
-                  <tr>
-                    <th style="width: 10px">Codigo</th>
-                    <th>Descripcion</th>
-                    <th>Cantidad</th>
-                    <th>Precio Unitario</th>
-                  </tr>
+                    <div class="box-body">
 
 
-
-
-                </table>
-              </div>
-              <!-- /.box-body -->
-            </div>
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">Productos Entregados</h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body no-padding">
+                                <table id="visualizarProd" class="table table-striped">
+                                    <tr>
+                                        <th style="width: 10px">Codigo</th>
+                                        <th>Descripcion</th>
+                                        <th>Cantidad</th>
+                                        <th>Precio Unitario</th>
+                                    </tr>
 
 
 
 
+                                </table>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
 
-          </div>
 
-        </div>
-        <!-- **********************************
+
+
+
+                    </div>
+
+                </div>
+                <!-- **********************************
                 PIE DEL MODAL
       **************************************-->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
+                </div>
         </div>
-    </div>
-    <?php
+        <?php
 
     ?>
-    </form>
+        </form>
 
-  </div>
+    </div>
 </div>
