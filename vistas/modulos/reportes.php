@@ -11,7 +11,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-       Reportes General de Salidas
+       Reportes General de Salids
        
       </h1>
       <ol class="breadcrumb">
