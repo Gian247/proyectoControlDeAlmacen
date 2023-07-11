@@ -21,7 +21,7 @@
 
 							<a href="reporte-productos-fecha">
 			
-								<i class="fa fa-home"></i>
+								<i class="fa fa-plus-square"></i>
 								<span>Detalle Salida Productos</span>
 			
 							</a>
