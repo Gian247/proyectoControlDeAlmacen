@@ -187,7 +187,7 @@
 	
 							<a href="salidas">
 	
-								<i class="fa fa-file"></i>
+								<i class="fa fa-external-link-square"></i>
 								<span>Administrar Salidas</span>
 	
 							</a>
