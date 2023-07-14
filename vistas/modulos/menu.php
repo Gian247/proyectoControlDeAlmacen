@@ -76,7 +76,7 @@
 
 								<a href="categorias">
 	
-									<i class="fa fa-building-o"></i>
+									<i class="fa fa-server"></i>
 									<span>Categorías</span>
 	
 								</a>
