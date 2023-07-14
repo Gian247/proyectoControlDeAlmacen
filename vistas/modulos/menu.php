@@ -31,7 +31,7 @@
 
 							<a href="area">
 			
-								<i class="fa fa-home"></i>
+								<i class="fa fa-th"></i>
 								<span>Areas</span>
 			
 							</a>
