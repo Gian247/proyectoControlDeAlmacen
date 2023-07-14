@@ -58,7 +58,7 @@
 
 								<a href="perfil">
 
-									<i class="fa fa-suitcase"></i>
+									<i class="fa fa-user-secret"></i>
 									<span>Perfil</span>
 
 								</a>
