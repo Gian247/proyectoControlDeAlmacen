@@ -54,7 +54,7 @@
 
         <br><br>     
         <div class="col-xs-12" style="text-align: center;">
-          <h1 style="text-align: center;">REPORTE SALIDA DE PRODUCTOS X FECHA</h1>
+          <h1 style="text-align: center;">Reporte: Salida de productos por fecha</h1>
           <br>
           <div class="box-tools pull-left">
             <?php
@@ -133,7 +133,7 @@
         </table>
         <br><br>     
         <div class="col-xs-12" style="text-align: center;">
-          <h1 style="text-align: center;">REPORTE SALIDA DE SOLICITANTES X FECHA</h1>
+          <h1 style="text-align: center;">Reporte: Salida de solicitantes por fecha</h1>
           <br>
           <div class="box-tools pull-left">
             <?php
@@ -206,7 +206,7 @@
         </table>
          <br><br>     
         <div class="col-xs-12" style="text-align: center;">
-          <h1 style="text-align: center;">REPORTE SALIDA DE ÁREAS X FECHA</h1>
+          <h1 style="text-align: center;">Reporte: Salida de áreas por fecha</h1>
           <br>
           <div class="box-tools pull-left">
             <?php
