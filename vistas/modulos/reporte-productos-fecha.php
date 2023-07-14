@@ -10,7 +10,7 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Reporte de salida de productos
+      Reportes de salida de productos
 
     </h1>
     <ol class="breadcrumb">
